@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ruul.io uses the Hedvig Letters pair: Serif for display, Sans for UI/body. */
+:root {
+  --font-sans: "Hedvig Letters Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-serif: "Hedvig Letters Serif", ui-serif, Georgia, "Times New Roman",
+    serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-lime ring-offset-2 ring-offset-canvas;
+  }
+}
+
+@layer components {
+  /* Shared shell width — matches ruul's 1110px container. */
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Faint grid used behind image placeholders. */
+  .bg-grid-paper {
+    background-image: linear-gradient(#d8d9d3 1px, transparent 1px),
+      linear-gradient(90deg, #d8d9d3 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid-paper-dark {
+    background-image: linear-gradient(
+        rgba(252, 252, 247, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(252, 252, 247, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Logo marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+/* Scroll reveal (progressively enhanced — visible by default if JS is off) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

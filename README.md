@@ -15,6 +15,9 @@ pill buttons, logo marquee, stat band, `<details>` FAQ).
 | Projects / case studies (also creates their pages) | `src/content/projects.ts` |
 | Colors, fonts, spacing tokens | `tailwind.config.ts` |
 | Which sections appear on the home page, and in what order | `src/app/page.tsx` |
+| The "no longer my client" disclaimer | `work.disclaimer` in `src/content/site.ts` |
+| The senior-role / master's-degree spotlight | `spotlight` in `src/content/site.ts` |
+| Previous employment (UX Mesh) | `previousExperience` in `src/content/site.ts` |
 | Images | drop files in `public/images/`, then set the path in the content files |
 
 Components in `src/components/` read from those content files. You should
@@ -24,8 +27,15 @@ rarely need to open them.
 
 Open `src/content/projects.ts`, copy an existing object in the `projects`
 array, change the fields. That's it — the card appears in the "Selected work"
-grid and `/work/<slug>` is generated automatically. Set `featured: false` to
-keep the page but hide the card.
+grid and `/work/<slug>` is generated automatically.
+
+Two visibility flags:
+
+- `featured: false` — keeps the page, removes the card from the home grid.
+- `hidden: true` — takes it off the site entirely: no card, no next-project
+  link, excluded from the sitemap, and marked `noindex, nofollow`. The page
+  still builds, so a direct link to `/work/<slug>` works if you send it to
+  someone. This is how UX Mesh is currently set up.
 
 ### Images / placeholders
 
@@ -96,7 +106,9 @@ src/
     Reveal.tsx              fade-up on scroll
     SiteHeader.tsx          sticky nav + mobile drawer
     SiteFooter.tsx
-    Hero.tsx  LogoMarquee.tsx  Process.tsx  WorkGrid.tsx
+    Hero.tsx  LogoMarquee.tsx  WorkGrid.tsx
+    Spotlight.tsx           senior POC + master's degree
+    Process.tsx
     Capabilities.tsx  Stats.tsx  Experience.tsx
     Testimonials.tsx  Faq.tsx  CtaBand.tsx
   content/

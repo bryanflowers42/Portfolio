@@ -16,3 +16,20 @@ Paths are relative to `/public`, so a file at `public/images/dryforce-hero.jpg`
 is referenced as `/images/dryforce-hero.jpg`.
 
 Any field left as `null` renders a labelled placeholder instead — nothing breaks.
+
+## Currently in place
+
+Six branded hero cards (992 × 693) are wired up as both the card image and the
+project hero for DryForce, Next Door and Window, Sun Solar Solutions, American
+Sports Construction, Ambient Edge, and Sunrise Kitchen. They are displayed with
+`object-cover`, so the edges crop but the centered logo always stays in frame.
+
+Two notes:
+
+- They are 992px wide, so on the large project hero they'll be slightly soft on
+  a high-DPI screen. Swap in ~1600px versions when you have them.
+- The Next Door and Window file has a transparent background, so it renders
+  near-white against the card. A version on their brand blue would match the
+  others.
+- `seo.ogImage` still points at `/images/og-default.png`, which doesn't exist
+  yet — social shares won't show a preview image until you add it (1200 × 630).

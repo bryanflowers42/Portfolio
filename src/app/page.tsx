@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import LogoMarquee from "@/components/LogoMarquee";
 import Process from "@/components/Process";
+import Spotlight from "@/components/Spotlight";
 import WorkGrid from "@/components/WorkGrid";
 import Capabilities from "@/components/Capabilities";
 import Stats from "@/components/Stats";
@@ -16,8 +17,9 @@ export default function HomePage() {
     <>
       <Hero />
       <LogoMarquee />
-      <Process />
       <WorkGrid />
+      <Spotlight />
+      <Process />
       <Capabilities />
       <Stats />
       <Experience />

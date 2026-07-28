@@ -97,7 +97,6 @@ export const logos = {
     { name: "Next Door and Window", image: null },
     { name: "American Sports Construction", image: null },
     { name: "Sunrise Kitchen", image: null },
-    { name: "UX Mesh", image: null },
     { name: "University of Michigan", image: null },
   ] as ClientLogo[],
 };
@@ -106,44 +105,70 @@ export const logos = {
 
 export const process = {
   eyebrow: "How I work",
-  heading:
-    "Architect the build before it starts, design the experience, then ship something that performs.",
+  heading: "Plan it, design it, build it. In that order.",
   steps: [
     {
       number: "01",
-      title: "Architect the build",
-      body: "Define scope, sitemap, and technical approach before a single page is touched — so a 200-page site doesn't turn into 200 problems.",
+      title: "Plan",
+      body: "Sitemap, content, and templates get decided before design starts.",
       bullets: [
-        "Content architecture and information hierarchy mapped up front.",
-        "Technical approach and template system decided before design starts.",
+        "Page structure and content mapped up front.",
+        "Template system planned so the build scales.",
       ],
       image: null,
     },
     {
       number: "02",
-      title: "Design the experience",
-      body: "Wireframes to high-fidelity Figma, grounded in user journeys and research rather than taste alone.",
+      title: "Design",
+      body: "Wireframes through finished Figma mockups, based on how people actually use the site.",
       bullets: [
-        "Wireframes, prototypes, and user journeys in Figma.",
-        "Usability testing, A/B tests, and interviews where the stakes justify it.",
+        "Wireframes, prototypes, and full mockups in Figma.",
+        "Research and testing where it changes the outcome.",
       ],
       image: null,
     },
     {
       number: "03",
-      title: "Build and optimize",
-      body: "ADA-compliant WordPress builds with strong Core Web Vitals, then ongoing optimization against real campaign performance.",
+      title: "Build",
+      body: "ADA-compliant WordPress that loads fast and keeps converting after launch.",
       bullets: [
-        "ADA compliance and Core Web Vitals treated as requirements, not extras.",
-        "Conversion-focused landing pages measured against marketing goals.",
+        "Accessibility and page speed built in, not bolted on.",
+        "Landing pages tuned to campaign performance.",
       ],
       image: null,
     },
   ] as Step[],
-  footnote: {
-    heading: "Senior technical point of contact",
-    body: "For priority clients I turn complex technical decisions into clear direction and keep stakeholders confident from kickoff through launch.",
-  },
+};
+
+/* ---------- work section framing + client-site disclaimer ---------- */
+
+export const work = {
+  eyebrow: "Selected work",
+  heading: "Large-scale builds, from content architecture through launch.",
+  note: "Click any card for the full breakdown.",
+  disclaimer:
+    "Some of these sites are no longer under my care. Maintenance has since passed to the client or another team, so the live sites may have changed since launch — I can't speak to, or take responsibility for, their current content, condition, or errors.",
+};
+
+/* ---------- what sets me apart (spotlight) ---------- */
+
+export const spotlight = {
+  eyebrow: "What sets me apart",
+  heading: "The person clients call when the build gets complicated.",
+  cards: [
+    {
+      label: "Role",
+      title: "Senior technical point of contact",
+      body: "On priority accounts I'm the one in the room with the client. I turn complex technical decisions into plain direction, set expectations that hold, and keep stakeholders confident from kickoff through launch.",
+      chips: ["Client-facing", "Technical direction", "Stakeholder management"],
+    },
+    {
+      label: "Education",
+      title: "M.S. in User-Centered Agile Development",
+      body: "A master's from the University of Michigan in exactly this work: shipping user-centered products on agile timelines. It's why research, design, and build don't behave like three separate handoffs when I run a project.",
+      chips: ["University of Michigan", "UX research", "Agile delivery"],
+    },
+  ],
 };
 
 /* ---------- [03] capabilities ---------- */
@@ -222,7 +247,7 @@ export const stats: Stat[] = [
 
 export const experience = {
   eyebrow: "Experience",
-  heading: "Three years of agency and startup work, moving from designer to senior.",
+  heading: "Agency work, moving from designer to senior.",
   jobs: [
     {
       role: "Senior Web Designer",
@@ -230,9 +255,9 @@ export const experience = {
       start: "08/2025",
       end: "Present",
       bullets: [
-        "Manage a fellow designer's workload daily while carrying a full project load of my own, offering direct support and delegation across both tracks.",
+        "Serve as the senior technical point of contact for priority clients, turning complex decisions into clear direction and keeping stakeholders confident throughout.",
         "Architect large-scale WordPress builds from the ground up, defining scope, structure, and technical approach before a single page is touched.",
-        "Act as the senior technical point of contact for priority clients, turning complex decisions into clear direction and keeping stakeholders confident throughout.",
+        "Manage a fellow designer's workload daily while carrying a full project load of my own, offering direct support and delegation across both tracks.",
       ],
     },
     {
@@ -246,15 +271,25 @@ export const experience = {
         "Designed and optimized conversion-focused landing pages built for campaign performance and measurable marketing success.",
       ],
     },
+  ] as Job[],
+};
+
+/* ---------- previous employment ----------
+   Earlier roles, listed more compactly than current work.            */
+
+export const previousExperience = {
+  eyebrow: "Previously",
+  heading: "Where the research side of my work came from.",
+  jobs: [
     {
-      role: "Part-time UX Researcher and Designer",
+      role: "Part-time UX Researcher & Designer",
       company: "UX Mesh",
       start: "05/2023",
       end: "03/2024",
       bullets: [
         "Designed and built the startup's WordPress website, establishing a credible online presence for the early-stage company.",
         "Ran surveys and user interviews, translating findings into actionable design and product recommendations.",
-        "Contributed ongoing UX strategy, aligning research insights with business goals to shape the product's direction.",
+        "Contributed ongoing UX strategy, aligning research insights with business goals to help shape the product's direction.",
       ],
     },
   ] as Job[],
@@ -264,12 +299,12 @@ export const experience = {
 
 export const education = {
   eyebrow: "Education",
-  heading: "Cognitive science and information, applied to design.",
+  heading: "Cognitive science, then user-centered agile development.",
   schools: [
     {
       school: "University of Michigan, Ann Arbor",
       dates: "09/2021 – 05/2023",
-      degree: "M.S. in Information — Focus in UX Research and Design",
+      degree: "M.S. in User-Centered Agile Development",
     },
     {
       school: "University of Michigan, Ann Arbor",

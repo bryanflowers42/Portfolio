@@ -7,7 +7,7 @@ export default function Process() {
   return (
     <Section id="process" tone="canvas">
       <Shell>
-        <SectionHeading index="01" eyebrow={process.eyebrow}>
+        <SectionHeading index="03" eyebrow={process.eyebrow}>
           {process.heading}
         </SectionHeading>
 
@@ -53,18 +53,6 @@ export default function Process() {
           ))}
         </div>
 
-        <Reveal>
-          <div className="mt-6 rounded-panel bg-forest p-7 text-canvas sm:p-10">
-            <div className="grid items-center gap-4 md:grid-cols-12">
-              <h3 className="font-display text-2xl tracking-[-0.01em] md:col-span-5">
-                {process.footnote.heading}
-              </h3>
-              <p className="text-sm leading-relaxed text-canvas/70 md:col-span-7">
-                {process.footnote.body}
-              </p>
-            </div>
-          </div>
-        </Reveal>
       </Shell>
     </Section>
   );

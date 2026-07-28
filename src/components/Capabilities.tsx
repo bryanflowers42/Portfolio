@@ -6,7 +6,7 @@ export default function Capabilities() {
   return (
     <Section id="capabilities" tone="forest">
       <Shell>
-        <SectionHeading index="03" eyebrow={capabilities.eyebrow} invert>
+        <SectionHeading index="04" eyebrow={capabilities.eyebrow} invert>
           {capabilities.heading}
         </SectionHeading>
 

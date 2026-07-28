@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { featuredProjects } from "@/content/projects";
+import { work } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Media from "./Media";
 import Reveal from "./Reveal";
@@ -11,11 +12,11 @@ export default function WorkGrid() {
     <Section id="work" tone="surface">
       <Shell>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading index="02" eyebrow="Selected work">
-            Large-scale builds, from content architecture through launch.
+          <SectionHeading index="01" eyebrow={work.eyebrow}>
+            {work.heading}
           </SectionHeading>
           <p className="max-w-xs text-sm leading-relaxed text-ink/50">
-            {items.length} projects. Click any card for the full breakdown.
+            {items.length} projects. {work.note}
           </p>
         </div>
 
@@ -32,9 +33,11 @@ export default function WorkGrid() {
               >
                 <Media
                   src={p.cardImage}
-                  alt={p.name}
+                  alt={`${p.name} brand mark`}
                   label={`${p.name} — card image`}
-                  ratio={i === 0 ? "21 / 9" : "16 / 10"}
+                  /* brand cards are 992×693 (~3:2); the featured card runs
+                     wider, which crops the edges but keeps the logo centered */
+                  ratio={i === 0 ? "2 / 1" : "3 / 2"}
                   rounded="rounded-none"
                   className="border-0 border-b border-ink/[0.08]"
                 />
@@ -82,6 +85,13 @@ export default function WorkGrid() {
             </Reveal>
           ))}
         </div>
+
+        {/* client-site disclaimer */}
+        <Reveal>
+          <p className="mt-8 max-w-[70ch] border-l-2 border-ink/15 pl-4 text-xs leading-relaxed text-ink/45">
+            {work.disclaimer}
+          </p>
+        </Reveal>
       </Shell>
     </Section>
   );

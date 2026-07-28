@@ -8,7 +8,7 @@ export default function Testimonials() {
   return (
     <div className="bg-canvas py-16 sm:py-20 lg:py-24">
       <Shell>
-        <Eyebrow index="06">What people say</Eyebrow>
+        <Eyebrow>What people say</Eyebrow>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {testimonials.map((t, i) => (

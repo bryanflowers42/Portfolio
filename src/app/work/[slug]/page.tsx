@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { projects, getProject, getNextProject } from "@/content/projects";
-import { profile } from "@/content/site";
+import { profile, work } from "@/content/site";
 import { Shell, Eyebrow } from "@/components/Shell";
 import Media from "@/components/Media";
 import Reveal from "@/components/Reveal";
@@ -23,6 +23,8 @@ export function generateMetadata({
   return {
     title: `${project.name} — ${project.discipline}`,
     description: project.summary,
+    // hidden projects stay reachable by direct link but out of search results
+    ...(project.hidden ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -175,6 +177,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </Shell>
         </section>
       )}
+
+      {/* client-site disclaimer */}
+      <div className="bg-canvas pt-14">
+        <Shell>
+          <p className="max-w-[70ch] border-l-2 border-ink/15 pl-4 text-xs leading-relaxed text-ink/45">
+            {work.disclaimer}
+          </p>
+        </Shell>
+      </div>
 
       {/* next project */}
       {next && (

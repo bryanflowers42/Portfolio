@@ -7,6 +7,7 @@ import { Shell, Eyebrow } from "@/components/Shell";
 import Media from "@/components/Media";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
+import { Squiggle, FlowLines } from "@/components/Decor";
 
 /* Every project in src/content/projects.ts gets a page automatically. */
 export function generateStaticParams() {
@@ -21,7 +22,7 @@ export function generateMetadata({
   const project = getProject(params.slug);
   if (!project) return { title: "Project not found" };
   return {
-    title: `${project.name} — ${project.discipline}`,
+    title: `${project.name} case study`,
     description: project.summary,
     ...(project.heroImage ? { openGraph: { images: [project.heroImage] } } : {}),
     // hidden projects stay reachable by direct link but out of search results
@@ -45,8 +46,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* header */}
-      <section className="bg-forest pb-0 pt-14 text-canvas sm:pt-20">
-        <Shell>
+      <section className="relative overflow-hidden bg-forest pb-0 pt-14 text-canvas sm:pt-20">
+        <FlowLines
+          className="absolute inset-x-0 top-6 h-[260px] w-full text-lime"
+          opacity={0.22}
+        />
+        <Shell className="relative">
           <Link
             href="/#work"
             className="inline-flex items-center gap-2 text-sm text-canvas/55 transition-colors hover:text-lime"
@@ -127,6 +132,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <Eyebrow index="01">The brief</Eyebrow>
+              <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-leaf lg:block" strokeWidth={4} />
             </div>
             <p className="font-display text-2xl leading-snug tracking-[-0.01em] sm:text-[28px] lg:col-span-8">
               {project.overview}
@@ -144,6 +150,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <h2 className="mt-5 font-display text-3xl tracking-[-0.01em] sm:text-4xl">
                 Kickoff to launch
               </h2>
+              <Squiggle variant="arrow" className="mt-6 hidden h-24 w-32 text-leaf lg:block" strokeWidth={4} />
             </div>
 
             <ol className="relative lg:col-span-8">
@@ -154,13 +161,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               />
               {project.process.map((step, i) => (
                 <li key={step.stage} className="relative pb-10 pl-14 last:pb-0">
+                  {/* the marker stays outside Reveal: Reveal's transform would
+                      otherwise make it the containing block and shift the
+                      marker off the rail */}
+                  <span
+                    className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas ring-4 ring-canvas"
+                    aria-hidden
+                  >
+                    {i + 1}
+                  </span>
                   <Reveal delay={i * 70}>
-                    <span
-                      className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas"
-                      aria-hidden
-                    >
-                      {i + 1}
-                    </span>
                     <h3 className="pt-1 font-display text-xl tracking-[-0.01em]">
                       {step.stage}
                     </h3>
@@ -194,17 +204,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <section className="bg-surface py-16 sm:py-20 lg:py-24">
           <Shell>
             <Eyebrow index="03">The result</Eyebrow>
-            <div className="mt-10 grid gap-10 sm:gap-14">
-              {gallery.map((g) => (
-                <Reveal key={g.caption}>
+            {/* two-column masonry: each screenshot keeps its own height */}
+            <div className="mt-10 gap-6 sm:columns-2">
+              {gallery.map((g, i) => (
+                <Reveal key={g.caption} delay={(i % 2) * 80} className="mb-6 break-inside-avoid">
                   <figure>
-                    <Media
-                      src={g.image}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={g.image as string}
                       alt={g.caption}
-                      ratio="16 / 10"
-                      className="border-0"
+                      loading="lazy"
+                      decoding="async"
+                      className="block h-auto w-full rounded-card"
                     />
-                    <figcaption className="mt-3 text-xs text-ink/45">
+                    <figcaption className="mt-2.5 text-xs text-ink/45">
                       {g.caption}
                     </figcaption>
                   </figure>

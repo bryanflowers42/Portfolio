@@ -103,9 +103,44 @@
   transform: none;
 }
 
+/* Decor: squiggles draw themselves in, the line ribbon drifts slowly */
+@keyframes squiggle-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.squiggle-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: squiggle-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) both 0.3s;
+}
+
+@keyframes flow-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(-2%, 3%, 0) scaleY(0.88);
+  }
+}
+
+.flow-drift {
+  transform-origin: 50% 50%;
+  animation: flow-drift 18s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .squiggle-draw,
+  .flow-drift {
+    animation: none;
   }
   .animate-marquee {
     animation: none;

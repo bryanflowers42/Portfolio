@@ -6,6 +6,7 @@ import {
 } from "@/content/site";
 import { Section, Shell, SectionHeading, Eyebrow } from "./Shell";
 import Reveal from "./Reveal";
+import { Squiggle } from "./Decor";
 
 function JobRow({ job, delay = 0 }: { job: Job; delay?: number }) {
   return (
@@ -17,7 +18,7 @@ function JobRow({ job, delay = 0 }: { job: Job; delay?: number }) {
           </h3>
           <p className="mt-1.5 text-sm text-ink/60">{job.company}</p>
           <p className="mt-3 inline-flex rounded-full border border-ink/[0.12] px-3 py-1 text-xs text-ink/50">
-            {job.start} – {job.end}
+            {job.start} to {job.end}
           </p>
         </div>
 
@@ -44,9 +45,16 @@ export default function Experience() {
   return (
     <Section id="experience" tone="canvas">
       <Shell>
-        <SectionHeading index="04" eyebrow={experience.eyebrow}>
-          {experience.heading}
-        </SectionHeading>
+        <div className="relative">
+          <SectionHeading index="04" eyebrow={experience.eyebrow}>
+            {experience.heading}
+          </SectionHeading>
+          <Squiggle
+            variant="loop"
+            className="absolute bottom-0 right-0 hidden h-20 w-52 text-leaf md:block"
+            strokeWidth={4}
+          />
+        </div>
 
         <ol className="mt-12 lg:mt-16">
           {experience.jobs.map((job, i) => (

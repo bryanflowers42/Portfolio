@@ -3,6 +3,7 @@ import { Shell } from "./Shell";
 import Button from "./Button";
 import Media from "./Media";
 import Reveal from "./Reveal";
+import { FlowLines } from "./Decor";
 
 export default function Hero() {
   return (
@@ -11,6 +12,10 @@ export default function Hero() {
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-lime/10 blur-[120px]"
         aria-hidden
+      />
+      <FlowLines
+        className="absolute inset-x-0 bottom-10 h-[220px] w-full text-lime sm:h-[280px]"
+        opacity={0.3}
       />
       <Shell className={`relative pt-14 sm:pt-20 lg:pt-24 ${hero.image ? "pb-0" : "pb-16 sm:pb-20 lg:pb-24"}`}>
         <Reveal>
@@ -62,7 +67,7 @@ export default function Hero() {
       {/* quick contact strip */}
       <div className="border-t border-canvas/10 bg-forest-dark">
         <Shell className="flex flex-col items-center justify-between gap-2 py-4 text-xs text-canvas/50 sm:flex-row">
-          <p>{profile.title} — {profile.location}</p>
+          <p>{profile.title} in {profile.location}</p>
           <p className="flex items-center gap-4">
             <a className="transition-colors hover:text-lime" href={`mailto:${profile.email}`}>
               {profile.email}

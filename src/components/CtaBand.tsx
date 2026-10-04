@@ -1,6 +1,7 @@
 import { cta } from "@/content/site";
 import { Shell } from "./Shell";
 import Button from "./Button";
+import { FlowLines } from "./Decor";
 
 export default function CtaBand() {
   return (
@@ -10,6 +11,10 @@ export default function CtaBand() {
           <div
             className="pointer-events-none absolute -bottom-32 left-1/2 h-[380px] w-[680px] -translate-x-1/2 rounded-full bg-lime/10 blur-[110px]"
             aria-hidden
+          />
+          <FlowLines
+            className="absolute inset-x-0 top-1/2 h-[260px] w-full -translate-y-1/2 text-lime"
+            opacity={0.22}
           />
           <div className="relative mx-auto max-w-[620px]">
             <h2 className="text-display-sm lg:text-[44px]">{cta.heading}</h2>

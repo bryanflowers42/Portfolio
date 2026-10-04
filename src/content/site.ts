@@ -35,7 +35,7 @@ export const profile = {
   title: "Senior Web Designer",
   location: "Michigan, USA",
   email: "bryanflowers42@gmail.com",
-  phone: "(810) 986-5599",
+  phone: "810.986.5599",
   phoneHref: "+18109865599",
   website: "bryanrflowers.com",
   websiteHref: "https://bryanrflowers.com",
@@ -49,7 +49,7 @@ export const profile = {
 };
 
 export const seo = {
-  title: "Bryan Flowers — Senior Web Designer",
+  title: "Bryan Flowers, Senior Web Designer",
   description:
     "Senior web designer in Michigan. I design and build websites from first sitemap to launch. 30+ sites shipped.",
   url: "https://bryanrflowers.com",
@@ -148,11 +148,11 @@ export const spotlight = {
       label: "Role",
       title: "Senior point of contact",
       body: "On priority accounts, I'm the one the client talks to. I explain technical decisions in plain terms and keep everyone on the same page through launch.",
-      chips: ["Client-facing", "Technical direction", "Team lead"],
+      chips: ["Client facing", "Technical direction", "Team lead"],
     },
     {
       label: "Education",
-      title: "M.S. in User-Centered Agile Development",
+      title: "M.S. in User Centered Agile Development",
       body: "From the University of Michigan, after a B.S. in Cognitive Science. It's why my projects start with research.",
       chips: ["University of Michigan", "UX research", "Agile"],
     },
@@ -225,7 +225,7 @@ export const experience = {
       end: "08/2025",
       bullets: [
         "Took 30+ sites from first design to launch.",
-        "Built ADA-compliant WordPress sites with strong Core Web Vitals, and shipped 100+ updates to live client sites.",
+        "Built ADA compliant WordPress sites with strong Core Web Vitals, and shipped 100+ updates to live client sites.",
         "Designed landing pages for paid campaigns.",
       ],
     },
@@ -239,7 +239,7 @@ export const previousExperience = {
   heading: "Research first",
   jobs: [
     {
-      role: "UX Researcher & Designer (part-time)",
+      role: "UX Researcher & Designer (part time)",
       company: "UX Mesh",
       start: "05/2023",
       end: "03/2024",
@@ -260,12 +260,12 @@ export const education = {
   schools: [
     {
       school: "University of Michigan, Ann Arbor",
-      dates: "09/2021 – 05/2023",
-      degree: "M.S. in User-Centered Agile Development",
+      dates: "2021 to 2023",
+      degree: "M.S. in User Centered Agile Development",
     },
     {
       school: "University of Michigan, Ann Arbor",
-      dates: "09/2017 – 05/2021",
+      dates: "2017 to 2021",
       degree: "B.S. in Cognitive Science, minor in Computer Science",
     },
   ] as School[],
@@ -291,7 +291,7 @@ export const faq = {
     },
     {
       q: "Can you lead a team?",
-      a: "Yes. I've led five designers on a 100+ page build and co-led three on a 200+ page build.",
+      a: "Yes. I've led five designers on a 100+ page build and helped lead three on a 200+ page build.",
     },
   ] as Faq[],
 };
@@ -302,7 +302,7 @@ export const cta = {
   heading: "Have a project in mind?",
   body: "I'm open to senior web design and UX roles, and select freelance work.",
   primary: { label: "Email me", href: "mailto:bryanflowers42@gmail.com" },
-  secondary: { label: "Call (810) 986-5599", href: "tel:+18109865599" },
+  secondary: { label: "Call me: 810.986.5599", href: "tel:+18109865599" },
 };
 
 export const footer = {

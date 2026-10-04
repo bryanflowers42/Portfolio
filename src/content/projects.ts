@@ -59,7 +59,7 @@ export const projects: Project[] = [
     team: "3 designers",
     scope: ["200+ pages", "Landing pages", "Scalable templates", "WordPress"],
     overview:
-      "Next Door & Window replaces windows and doors across Chicago, St. Louis, and Madison. They needed a site that could hold hundreds of service and landing pages and still feel like one brand. I designed it from scratch and co-led the team that built it.",
+      "Next Door & Window replaces windows and doors across Chicago, St. Louis, and Madison. They needed a site that could hold hundreds of service and landing pages and still feel like one brand. I designed it from scratch and helped lead the team that built it.",
     process: [
       {
         stage: "Plan",
@@ -67,11 +67,11 @@ export const projects: Project[] = [
       },
       {
         stage: "Design",
-        body: "Designed the site from scratch. Every landing page was laid out conversion-first, to support the client's ad campaigns.",
+        body: "Designed the site from scratch. Every landing page was laid out to convert, in support of the client's ad campaigns.",
       },
       {
         stage: "Build",
-        body: "Co-led a team of three designers through the build and handled the technical direction.",
+        body: "Helped lead a team of three designers through the build and handled the technical direction.",
       },
       {
         stage: "Launch",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     heroImage: "/images/work/next-door-and-window-cover.jpg",
     gallery: [
       { image: "/images/work/next-door-and-window-01.jpg", caption: "Feature section with annotated product benefits" },
-      { image: "/images/work/next-door-and-window-02.jpg", caption: "Three-step process section" },
+      { image: "/images/work/next-door-and-window-02.jpg", caption: "Three step process section" },
       { image: "/images/work/next-door-and-window-03.jpg", caption: "About section" },
       { image: "/images/work/next-door-and-window-04.jpg", caption: "Window styles carousel" },
     ],
@@ -125,7 +125,7 @@ export const projects: Project[] = [
       { image: "/images/work/dryforce-01.jpg", caption: "Restoration process section" },
       { image: "/images/work/dryforce-02.jpg", caption: "Experience and trust section" },
       { image: "/images/work/dryforce-03.jpg", caption: "Results section" },
-      { image: "/images/work/dryforce-04.jpg", caption: "Response-time section" },
+      { image: "/images/work/dryforce-04.jpg", caption: "Response time section" },
     ],
     liveUrl: "https://dryforcecorp.com/",
   },
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
     summary:
-      "A ground-up site for a solar installer working across four states.",
+      "A brand new site for a solar installer working across four states.",
     role: "Designer, developer, client contact",
     scope: ["Designed from scratch", "Figma", "Brand analysis", "Client calls"],
     overview:
@@ -148,7 +148,7 @@ export const projects: Project[] = [
       },
       {
         stage: "Design",
-        body: "Turned that direction into full-scale mockups in Figma, built around the brand they already had.",
+        body: "Turned that direction into full scale mockups in Figma, built around the brand they already had.",
       },
       {
         stage: "Review",
@@ -156,7 +156,7 @@ export const projects: Project[] = [
       },
       {
         stage: "Build",
-        body: "Built it in WordPress as a dynamic, content-driven site the team can keep updating.",
+        body: "Built it in WordPress as a dynamic, content driven site the team can keep updating.",
       },
     ],
     cardImage: "/images/work/sun-solar-solutions-cover.jpg",
@@ -216,9 +216,9 @@ export const projects: Project[] = [
     year: "2024",
     featured: true,
     summary:
-      "An HVAC and plumbing site, rebuilt as part of a multi-brand home services program.",
+      "An HVAC and plumbing site, rebuilt as part of a home services program covering several brands.",
     role: "Web designer & developer",
-    scope: ["Multi-brand program", "ACF templates", "Tight deadlines", "Post-launch updates"],
+    scope: ["Multi brand program", "ACF templates", "Tight deadlines", "Updates after launch"],
     overview:
       "Ambient Edge was one of several home service brands Youtech rebuilt for The Friendly Group. I was on it from kickoff through launch and stayed on for marketing updates afterward. It's the project where I learned to build sites that scale.",
     process: [
@@ -255,9 +255,9 @@ export const projects: Project[] = [
     year: "2024",
     featured: true,
     summary:
-      "A warm, personality-first site for a local breakfast spot. Designed and built solo.",
+      "A warm, personality first site for a local breakfast spot. Designed and built solo.",
     role: "Sole designer & developer",
-    scope: ["Solo project", "Brand-led design", "Responsive", "WordPress"],
+    scope: ["Solo project", "Brand led design", "Responsive", "WordPress"],
     overview:
       "Sunrise Kitchen is a local breakfast brand with a lot of personality and no website to show it. I handled everything myself, from the first concept to launch.",
     process: [
@@ -290,11 +290,11 @@ export const projects: Project[] = [
     featured: false,
     hidden: true,
     summary:
-      "Website and user research for an early-stage startup.",
+      "Website and user research for an early stage startup.",
     role: "UX researcher & designer",
     scope: ["Startup", "User interviews", "Surveys", "UX strategy"],
     overview:
-      "A part-time role covering both ends of the work: building the startup's website, and running the research that shaped what the team built next.",
+      "A part time role covering both ends of the work: building the startup's website, and running the research that shaped what the team built next.",
     process: [
       {
         stage: "Research",

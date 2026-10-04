@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.url),
-  title: { default: seo.title, template: `%s — ${profile.name}` },
+  title: { default: seo.title, template: `%s · ${profile.name}` },
   description: seo.description,
   openGraph: {
     title: seo.title,

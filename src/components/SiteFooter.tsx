@@ -10,14 +10,9 @@ export default function SiteFooter() {
       <div className="shell py-14 lg:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime text-[11px] font-medium text-ink">
-                {profile.initials}
-              </span>
-              <span className="font-display text-lg leading-none">
-                {profile.name}
-              </span>
-            </div>
+            <p className="font-display text-xl leading-none">
+              {profile.name}
+            </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-canvas/60">
               {footer.blurb}
             </p>

@@ -32,16 +32,9 @@ export default function SiteHeader() {
       }`}
     >
       <div className="shell flex h-16 items-center justify-between gap-6 lg:h-[72px]">
-        {/* Wordmark — swap for an <img src="/images/logo.svg" /> when ready */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          onClick={() => setOpen(false)}
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-[11px] font-medium text-canvas">
-            {profile.initials}
-          </span>
-          <span className="font-display text-lg leading-none tracking-[-0.01em]">
+        {/* Wordmark: just the name, set in the display serif */}
+        <Link href="/" onClick={() => setOpen(false)}>
+          <span className="font-display text-xl leading-none tracking-[-0.01em]">
             {profile.name}
           </span>
         </Link>

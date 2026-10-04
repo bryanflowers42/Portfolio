@@ -1,35 +1,28 @@
 # Images
 
-Drop real images here, then point to them from the content files.
+Paths are relative to `/public`, so `public/images/work/dryforce-cover.jpg`
+is referenced as `/images/work/dryforce-cover.jpg`.
 
-| Where it shows up | Set in | Field | Recommended size |
-| --- | --- | --- | --- |
-| Hero visual | `src/content/site.ts` | `hero.image` | 1600 × 1000 |
-| Client logos | `src/content/site.ts` | `logos.items[].image` | ~200 × 60, transparent PNG/SVG |
-| Process step visuals | `src/content/site.ts` | `process.steps[].image` | 800 × 600 |
-| Project card | `src/content/projects.ts` | `cardImage` | 1200 × 750 (first card is wider: 1600 × 690) |
-| Project hero | `src/content/projects.ts` | `heroImage` | 1600 × 1000 |
-| Project gallery | `src/content/projects.ts` | `gallery[].image` | 1200 × 900 |
-| Social share card | `src/content/site.ts` | `seo.ogImage` | 1200 × 630 |
+## What's here
 
-Paths are relative to `/public`, so a file at `public/images/dryforce-hero.jpg`
-is referenced as `/images/dryforce-hero.jpg`.
+| File | Used for |
+| --- | --- |
+| `work/<slug>-cover.jpg` | Project card + case study hero (desktop browser and phone on a brand-colored stage, 2400 × 1500) |
+| `work/<slug>-01.jpg` … | "The result" gallery on each case study: single sections of the live site in a browser frame (2400 × 1500) |
+| `og-default.jpg` | Social share card (1200 × 630) |
+| `<slug>-hero.png` | Original logo cards. Sunrise Kitchen still uses its one until it has screenshots |
 
-Any field left as `null` renders a labelled placeholder instead — nothing breaks.
+All screenshots were taken from the live sites with cookie banners, chat
+widgets, accessibility widgets, and promo bars removed.
 
-## Currently in place
+## Adding process artifacts
 
-Six branded hero cards (992 × 693) are wired up as both the card image and the
-project hero for DryForce, Next Door and Window, Sun Solar Solutions, American
-Sports Construction, Ambient Edge, and Sunrise Kitchen. They are displayed with
-`object-cover`, so the edges crop but the centered logo always stays in frame.
+Each step in a project's `process` (in `src/content/projects.ts`) takes an
+optional `image` and `caption`. That's the place for sitemaps, wireframes,
+and Figma frames, e.g.
 
-Two notes:
+```ts
+{ stage: "Plan", body: "…", image: "/images/work/dryforce-sitemap.jpg", caption: "Sitemap" },
+```
 
-- They are 992px wide, so on the large project hero they'll be slightly soft on
-  a high-DPI screen. Swap in ~1600px versions when you have them.
-- The Next Door and Window file has a transparent background, so it renders
-  near-white against the card. A version on their brand blue would match the
-  others.
-- `seo.ogImage` still points at `/images/og-default.png`, which doesn't exist
-  yet — social shares won't show a preview image until you add it (1200 × 630).
+Use 16:10 images (e.g. 1600 × 1000) so they line up with the screenshots.

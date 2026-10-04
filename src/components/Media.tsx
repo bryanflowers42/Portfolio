@@ -10,6 +10,7 @@ export default function Media({
   tone = "light",
   className = "",
   rounded = "rounded-panel",
+  eager = false,
 }: {
   src?: string | null;
   alt?: string;
@@ -18,6 +19,8 @@ export default function Media({
   tone?: "light" | "dark";
   className?: string;
   rounded?: string;
+  /** load immediately (above-the-fold images); everything else is lazy */
+  eager?: boolean;
 }) {
   const shellCls =
     tone === "dark"
@@ -34,6 +37,8 @@ export default function Media({
         <img
           src={src}
           alt={alt}
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
       ) : (

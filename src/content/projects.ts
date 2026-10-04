@@ -11,8 +11,21 @@
                         sitemap, and marked noindex. The page still exists at
                         /work/<slug> if you share the link directly.
 
-   Images live in /public/images/. Leave a field null for a placeholder.
+   PROCESS
+     The case study page is built around `process` — one entry per stage,
+     kickoff to launch. Each step can take an optional image (a sitemap,
+     wireframe, Figma frame…) and caption; steps without one show text only.
+
+   Images live in /public/images/. Screenshots of the live sites are in
+   /public/images/work/.
    ========================================================================== */
+
+export type ProcessStep = {
+  stage: string;             // "Discover", "Plan", "Design", "Build", "Launch"
+  body: string;              // one or two plain sentences
+  image?: string | null;     // optional artifact for this stage
+  caption?: string;
+};
 
 export type Project = {
   slug: string;              // becomes the URL: /work/<slug>
@@ -23,9 +36,10 @@ export type Project = {
   hidden?: boolean;          // unreachable from the site, but page still builds
   summary: string;           // one-liner used on the card
   role: string;
+  team?: string;
   scope: string[];           // small "fact" chips on the detail page
-  overview: string;          // opening paragraph on the detail page
-  highlights: string[];      // bullet points
+  overview: string;          // "The brief" on the detail page
+  process: ProcessStep[];
   cardImage?: string | null;
   heroImage?: string | null;
   gallery?: { image: string | null; caption: string }[];
@@ -34,174 +48,235 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "dryforce",
-    name: "DryForce",
-    discipline: "WordPress Web Design & Development",
+    slug: "next-door-and-window",
+    name: "Next Door & Window",
+    discipline: "Web design & WordPress build",
     year: "2025",
     featured: true,
     summary:
-      "A 100+ page WordPress build with content architecture coordinated across a five-designer team.",
-    role: "Lead Designer & Build Architect",
-    scope: ["100+ pages", "Team of 5", "WordPress", "Content architecture"],
+      "200+ pages for a window and door company. One of the agency's largest builds.",
+    role: "Lead designer, technical direction",
+    team: "3 designers",
+    scope: ["200+ pages", "Landing pages", "Scalable templates", "WordPress"],
     overview:
-      "DryForce was a large-scale WordPress project where the hard part was structure, not styling. I led the build, defined how 100+ pages of content would be organized and templated, and kept a team of five designers executing consistently against that system.",
-    highlights: [
-      "Led the build of a 100+ page WordPress site, coordinating content architecture and structure across a complex, large-scale project.",
-      "Designed the full site experience and delivered targeted recommendations that shaped the quality and direction of the final product.",
-      "Supervised a team of 5 web designers, maintaining consistent execution and keeping the build on schedule.",
+      "Next Door & Window replaces windows and doors across Chicago, St. Louis, and Madison. They needed a site that could hold hundreds of service and landing pages and still feel like one brand. I designed it from scratch and co-led the team that built it.",
+    process: [
+      {
+        stage: "Plan",
+        body: "Mapped out a template system that could scale past 200 pages and landing pages without slowing the site down.",
+      },
+      {
+        stage: "Design",
+        body: "Designed the site from scratch. Every landing page was laid out conversion-first, to support the client's ad campaigns.",
+      },
+      {
+        stage: "Build",
+        body: "Co-led a team of three designers through the build and handled the technical direction.",
+      },
+      {
+        stage: "Launch",
+        body: "Shipped a fast, scalable site that met both the client's and the agency's standards.",
+      },
     ],
-    cardImage: "/images/dryforce-hero.png",
-    heroImage: "/images/dryforce-hero.png",
+    cardImage: "/images/work/next-door-and-window-cover.jpg",
+    heroImage: "/images/work/next-door-and-window-cover.jpg",
     gallery: [
-      { image: null, caption: "Home page — desktop" },
-      { image: null, caption: "Service template — desktop" },
-      { image: null, caption: "Mobile views" },
+      { image: "/images/work/next-door-and-window-01.jpg", caption: "Feature section with annotated product benefits" },
+      { image: "/images/work/next-door-and-window-02.jpg", caption: "Three-step process section" },
+      { image: "/images/work/next-door-and-window-03.jpg", caption: "About section" },
+      { image: "/images/work/next-door-and-window-04.jpg", caption: "Window styles carousel" },
     ],
-    liveUrl: null,
+    liveUrl: "https://nextdoorandwindow.com/",
   },
   {
-    slug: "next-door-and-window",
-    name: "Next Door and Window",
-    discipline: "WordPress Web Design & Development",
+    slug: "dryforce",
+    name: "DryForce",
+    discipline: "Web design & WordPress build",
     year: "2025",
     featured: true,
     summary:
-      "200+ pages and landing pages — one of the agency's largest builds — designed from scratch and co-led with a team of three.",
-    role: "Lead Designer & Technical Direction",
-    scope: ["200+ pages", "Team of 3+", "Conversion-first", "Scalable templates"],
+      "A 100+ page site for a Texas water damage restoration company, built with a team of five.",
+    role: "Lead designer, build lead",
+    team: "5 designers",
+    scope: ["100+ pages", "Team of 5", "Content architecture", "WordPress"],
     overview:
-      "One of the largest builds the agency has taken on. I designed the site from scratch, co-led the design team, and provided the technical direction that kept a 200+ page build scalable and fast instead of unwieldy.",
-    highlights: [
-      "Designed the site from scratch and co-led a team of 3+ designers to build 200+ pages and landing pages, one of the agency's largest builds.",
-      "Built landing pages with a conversion-first approach, positioning each page to support campaign performance and marketing goals.",
-      "Provided key technical direction throughout, delivering a scalable, high-performance build that met client and agency standards.",
+      "DryForce handles water damage restoration across Dallas, Houston, Austin, and San Antonio. The challenge was size: dozens of services and cities, all needing their own pages. I designed the site, planned how the content fit together, and led the build.",
+    process: [
+      {
+        stage: "Plan",
+        body: "Organized 100+ pages of services and locations into a small set of templates, so the team could build fast and stay consistent.",
+      },
+      {
+        stage: "Design",
+        body: "Designed the full site experience and made the calls that set the direction for the final product.",
+      },
+      {
+        stage: "Build",
+        body: "Led five designers through the build, reviewing their work to keep every page consistent.",
+      },
+      {
+        stage: "Launch",
+        body: "Kept the project on schedule from first template to launch.",
+      },
     ],
-    cardImage: "/images/next-door-and-window-hero.png",
-    heroImage: "/images/next-door-and-window-hero.png",
+    cardImage: "/images/work/dryforce-cover.jpg",
+    heroImage: "/images/work/dryforce-cover.jpg",
     gallery: [
-      { image: null, caption: "Landing page system" },
-      { image: null, caption: "Product detail template" },
-      { image: null, caption: "Mobile navigation" },
+      { image: "/images/work/dryforce-01.jpg", caption: "Restoration process section" },
+      { image: "/images/work/dryforce-02.jpg", caption: "Experience and trust section" },
+      { image: "/images/work/dryforce-03.jpg", caption: "Results section" },
+      { image: "/images/work/dryforce-04.jpg", caption: "Response-time section" },
     ],
-    liveUrl: null,
+    liveUrl: "https://dryforcecorp.com/",
   },
   {
     slug: "sun-solar-solutions",
     name: "Sun Solar Solutions",
-    discipline: "WordPress Web Design & Development",
+    discipline: "Web design & WordPress build",
     year: "2025",
     featured: true,
     summary:
-      "A full site designed and built from scratch for a multi-state solar installer, shaped by competitive and brand analysis.",
-    role: "Designer, Developer & Client Contact",
-    scope: [
-      "Designed from scratch",
-      "Figma mockups",
-      "Brand analysis",
-      "Direct client contact",
-    ],
+      "A ground-up site for a solar installer working across four states.",
+    role: "Designer, developer, client contact",
+    scope: ["Designed from scratch", "Figma", "Brand analysis", "Client calls"],
     overview:
-      "A ground-up build for a solar company operating across several states. I started with competitive and brand analysis rather than a template, worked the direction up into full-scale Figma mockups, and stayed in direct contact with the client to manage expectations and work through revisions.",
-    highlights: [
-      "Designed and built the entire website from scratch, developing the direction through competitive and brand analysis before producing full-scale mockups in Figma.",
-      "Spoke directly with the client on multiple occasions to manage expectations, field revisions, and keep the project moving without scope drift.",
-      "Used the company's existing brand identity to shape its online presence, translating an established look into a dynamic, content-driven WordPress build.",
+      "Sun Solar installs residential and commercial solar in Arizona, Nevada, Florida, and Texas. They had an established brand and needed a site built around it. I took the project from research through launch and was the client's main contact the whole way.",
+    process: [
+      {
+        stage: "Discover",
+        body: "Started with a competitive review and a look at their existing brand, not a template.",
+      },
+      {
+        stage: "Design",
+        body: "Turned that direction into full-scale mockups in Figma, built around the brand they already had.",
+      },
+      {
+        stage: "Review",
+        body: "Met with the client several times to walk through designs, handle revisions, and keep scope in check.",
+      },
+      {
+        stage: "Build",
+        body: "Built it in WordPress as a dynamic, content-driven site the team can keep updating.",
+      },
     ],
-    cardImage: "/images/sun-solar-solutions-hero.png",
-    heroImage: "/images/sun-solar-solutions-hero.png",
+    cardImage: "/images/work/sun-solar-solutions-cover.jpg",
+    heroImage: "/images/work/sun-solar-solutions-cover.jpg",
     gallery: [
-      { image: null, caption: "Home page — desktop" },
-      { image: null, caption: "Figma mockups" },
-      { image: null, caption: "Mobile views" },
+      { image: "/images/work/sun-solar-solutions-01.jpg", caption: "Services cards" },
+      { image: "/images/work/sun-solar-solutions-02.jpg", caption: "Installation experience section" },
+      { image: "/images/work/sun-solar-solutions-03.jpg", caption: "Warranty section" },
+      { image: "/images/work/sun-solar-solutions-04.jpg", caption: "Service area map" },
     ],
     liveUrl: "https://sunsolarsolutions.com/",
   },
   {
     slug: "american-sports-construction",
-    name: "American Sports Construction",
-    discipline: "WordPress Web Design & Development",
+    name: "America Sports Construction",
+    discipline: "Web design & WordPress build",
     year: "2024",
     featured: true,
     summary:
-      "A new site for a $25M+ revenue company, built to a full ADA-compliance and web-vitals benchmark the agency carried forward.",
-    role: "Designer, Developer & Client Lead",
-    scope: [
-      "$25M+ revenue client",
-      "ADA compliant",
-      "Strong web vitals",
-      "Stakeholder lead",
-    ],
+      "A new site for a national sports construction company, held to a strict accessibility and speed standard.",
+    role: "Designer, developer, client lead",
+    scope: ["$25M+ revenue client", "ADA compliant", "Core Web Vitals", "WordPress"],
     overview:
-      "A ground-up rebuild for a company whose old site didn't reflect its scale. Alongside design and development I owned client communication with a prominent stakeholder, and the accessibility and performance standard set here became the benchmark for later agency builds.",
-    highlights: [
-      "Designed and built a new website for a $25M+ revenue company, delivering a polished presence that matched the scale of their business.",
-      "Managed client communication and design expectations, keeping a prominent stakeholder aligned and confident at every stage.",
-      "Ensured full ADA compliance and strong web vitals, setting a quality benchmark carried into future agency builds.",
+      "America Sports Construction builds courts, tracks, and turf fields nationwide. Their old site didn't reflect the size of the business. I designed and built the new one and handled communication with a senior stakeholder on their side.",
+    process: [
+      {
+        stage: "Kickoff",
+        body: "Worked directly with a senior stakeholder to set expectations and keep design decisions moving.",
+      },
+      {
+        stage: "Design",
+        body: "Designed a site that matches the scale of a $25M+ business, with the work itself front and center.",
+      },
+      {
+        stage: "Build",
+        body: "Built for full ADA compliance and strong Core Web Vitals from the start.",
+      },
+      {
+        stage: "Launch",
+        body: "The accessibility and performance bar set here became the benchmark for later agency builds.",
+      },
     ],
-    cardImage: "/images/american-sports-construction-hero.png",
-    heroImage: "/images/american-sports-construction-hero.png",
+    cardImage: "/images/work/american-sports-construction-cover.jpg",
+    heroImage: "/images/work/american-sports-construction-cover.jpg",
     gallery: [
-      { image: null, caption: "Home page — desktop" },
-      { image: null, caption: "Project portfolio template" },
-      { image: null, caption: "Accessibility audit results" },
+      { image: "/images/work/american-sports-construction-01.jpg", caption: "Sports surfaces section" },
+      { image: "/images/work/american-sports-construction-02.jpg", caption: "Project gallery section" },
+      { image: "/images/work/american-sports-construction-03.jpg", caption: "Why us section" },
+      { image: "/images/work/american-sports-construction-04.jpg", caption: "Who we serve section" },
     ],
-    liveUrl: null,
+    liveUrl: "https://americasportsconstruction.com/",
   },
   {
     slug: "ambient-edge",
     name: "Ambient Edge",
-    discipline: "WordPress Web Design & Development",
+    discipline: "Web design & WordPress build",
     year: "2024",
     featured: true,
     summary:
-      "One of several home service brands rebuilt under a multi-brand partnership — kickoff through launch and post-launch marketing.",
-    role: "Web Designer & Developer",
-    scope: [
-      "Multi-brand program",
-      "ACF dynamic templates",
-      "Tight deadlines",
-      "Post-launch marketing",
-    ],
+      "An HVAC and plumbing site, rebuilt as part of a multi-brand home services program.",
+    role: "Web designer & developer",
+    scope: ["Multi-brand program", "ACF templates", "Tight deadlines", "Post-launch updates"],
     overview:
-      "Ambient Edge came through Youtech's partnership with The Friendly Group, one of several home service brands we redesigned and rebuilt. I was on it from kickoff and stayed through launch and post-launch marketing — the project where I learned how to make a site genuinely dynamic rather than hand-built page by page.",
-    highlights: [
-      "Redesigned and built a new website for Ambient Edge as part of a multi-brand home services program, staying on the project from kickoff through launch and into post-launch marketing.",
-      "Built out dynamic templates with ACF fields, learning how to structure a large site so content scales instead of multiplying work.",
-      "Delivered a large-scale build against tight deadlines — an early project that established me as a designer the agency could trust with bigger work.",
+      "Ambient Edge was one of several home service brands Youtech rebuilt for The Friendly Group. I was on it from kickoff through launch and stayed on for marketing updates afterward. It's the project where I learned to build sites that scale.",
+    process: [
+      {
+        stage: "Kickoff",
+        body: "Joined at kickoff, alongside the other brands in the program.",
+      },
+      {
+        stage: "Build",
+        body: "Built dynamic templates with ACF, so new content fills existing layouts instead of needing new pages.",
+      },
+      {
+        stage: "Launch",
+        body: "Delivered a large build on a tight deadline.",
+      },
+      {
+        stage: "After launch",
+        body: "Stayed on for ongoing marketing updates once the site was live.",
+      },
     ],
-    cardImage: "/images/ambient-edge-hero.png",
-    heroImage: "/images/ambient-edge-hero.png",
+    cardImage: "/images/work/ambient-edge-cover.jpg",
+    heroImage: "/images/work/ambient-edge-cover.jpg",
     gallery: [
-      { image: null, caption: "Home page — desktop" },
-      { image: null, caption: "Service template" },
-      { image: null, caption: "Mobile views" },
+      { image: "/images/work/ambient-edge-01.jpg", caption: "About section" },
+      { image: "/images/work/ambient-edge-02.jpg", caption: "Service area banner" },
+      { image: "/images/work/ambient-edge-03.jpg", caption: "Specials section" },
     ],
     liveUrl: "https://www.ambientedge.com/",
   },
   {
     slug: "sunrise-kitchen",
     name: "Sunrise Kitchen",
-    discipline: "WordPress Web Design & Development",
+    discipline: "Web design & WordPress build",
     year: "2024",
     featured: true,
     summary:
-      "A warm, visually distinct site for a local breakfast brand — designed and built solo, concept through launch.",
-    role: "Sole Designer & Developer",
-    scope: ["Solo build", "Brand-led design", "Responsive", "WordPress"],
+      "A warm, personality-first site for a local breakfast spot. Designed and built solo.",
+    role: "Sole designer & developer",
+    scope: ["Solo project", "Brand-led design", "Responsive", "WordPress"],
     overview:
-      "A small local brand with a lot of personality and no web presence to match. I built the whole thing myself in WordPress, leaning into their identity rather than dropping them into a generic restaurant template.",
-    highlights: [
-      "Partnered with a local breakfast brand to build a warm, visually distinct online presence rooted in their personality and identity.",
-      "Designed and built the site personally from scratch in WordPress, owning every aspect from concept through launch.",
-      "Delivered a responsive, visually driven build that gave a small local business a standout web presence.",
+      "Sunrise Kitchen is a local breakfast brand with a lot of personality and no website to show it. I handled everything myself, from the first concept to launch.",
+    process: [
+      {
+        stage: "Discover",
+        body: "Started from the brand's personality, not a stock restaurant template.",
+      },
+      {
+        stage: "Design & build",
+        body: "Designed and built every page myself in WordPress.",
+      },
+      {
+        stage: "Launch",
+        body: "Shipped a responsive site that gives a small local business a real presence online.",
+      },
     ],
     cardImage: "/images/sunrise-kitchen-hero.png",
     heroImage: "/images/sunrise-kitchen-hero.png",
-    gallery: [
-      { image: null, caption: "Home page — desktop" },
-      { image: null, caption: "Menu page" },
-      { image: null, caption: "Mobile views" },
-    ],
+    gallery: [],
     liveUrl: null,
   },
 
@@ -210,27 +285,33 @@ export const projects: Project[] = [
   {
     slug: "ux-mesh",
     name: "UX Mesh",
-    discipline: "UX Research, Strategy & Web Design",
+    discipline: "UX research & web design",
     year: "2023",
     featured: false,
     hidden: true,
     summary:
-      "Website design and build for an early-stage startup, plus the research program that shaped its product direction.",
-    role: "UX Researcher & Designer",
-    scope: ["Startup 0→1", "User interviews", "Surveys", "UX strategy"],
+      "Website and user research for an early-stage startup.",
+    role: "UX researcher & designer",
+    scope: ["Startup", "User interviews", "Surveys", "UX strategy"],
     overview:
-      "A part-time role that covered both ends of the work: building the startup's website to give it credibility, and running the research that told the team what to build next.",
-    highlights: [
-      "Designed and built the startup's WordPress website, establishing a credible online presence for the early-stage company.",
-      "Ran surveys and user interviews, translating findings into actionable design and product recommendations.",
-      "Contributed ongoing UX strategy, aligning research insights with business goals to shape the product's direction.",
+      "A part-time role covering both ends of the work: building the startup's website, and running the research that shaped what the team built next.",
+    process: [
+      {
+        stage: "Research",
+        body: "Ran surveys and user interviews, and turned the findings into design and product recommendations.",
+      },
+      {
+        stage: "Design & build",
+        body: "Designed and built the company's WordPress site.",
+      },
+      {
+        stage: "Strategy",
+        body: "Kept UX strategy tied to business goals as the product took shape.",
+      },
     ],
     cardImage: null,
     heroImage: null,
-    gallery: [
-      { image: null, caption: "Marketing site — desktop" },
-      { image: null, caption: "Research synthesis" },
-    ],
+    gallery: [],
     liveUrl: null,
   },
 ];

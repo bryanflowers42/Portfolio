@@ -4,9 +4,9 @@ import Reveal from "./Reveal";
 
 export default function Capabilities() {
   return (
-    <Section id="capabilities" tone="forest">
+    <Section id="skills" tone="forest">
       <Shell>
-        <SectionHeading index="04" eyebrow={capabilities.eyebrow} invert>
+        <SectionHeading index="05" eyebrow={capabilities.eyebrow} invert>
           {capabilities.heading}
         </SectionHeading>
 

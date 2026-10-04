@@ -6,9 +6,9 @@ import Reveal from "./Reveal";
    role, and the master's degree behind how he works. */
 export default function Spotlight() {
   return (
-    <Section id="spotlight" tone="dark">
+    <Section id="about" tone="dark">
       <Shell>
-        <SectionHeading index="02" eyebrow={spotlight.eyebrow} invert>
+        <SectionHeading index="03" eyebrow={spotlight.eyebrow} invert>
           {spotlight.heading}
         </SectionHeading>
 

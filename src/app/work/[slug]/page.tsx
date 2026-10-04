@@ -23,6 +23,7 @@ export function generateMetadata({
   return {
     title: `${project.name} — ${project.discipline}`,
     description: project.summary,
+    ...(project.heroImage ? { openGraph: { images: [project.heroImage] } } : {}),
     // hidden projects stay reachable by direct link but out of search results
     ...(project.hidden ? { robots: { index: false, follow: false } } : {}),
   };
@@ -33,6 +34,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (!project) notFound();
 
   const next = getNextProject(project.slug);
+  const gallery = (project.gallery ?? []).filter((g) => g.image);
+
+  const facts = [
+    { label: "Role", value: project.role },
+    project.team && { label: "Team", value: project.team },
+    project.year && { label: "Year", value: project.year },
+  ].filter(Boolean) as { label: string; value: string }[];
 
   return (
     <>
@@ -58,16 +66,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
 
             <dl className="grid grid-cols-2 gap-x-6 gap-y-5 self-end lg:col-span-5">
-              <div className="col-span-2">
-                <dt className="text-eyebrow uppercase text-canvas/40">Role</dt>
-                <dd className="mt-1.5 text-sm text-canvas/85">{project.role}</dd>
-              </div>
-              {project.year && (
-                <div>
-                  <dt className="text-eyebrow uppercase text-canvas/40">Year</dt>
-                  <dd className="mt-1.5 text-sm text-canvas/85">{project.year}</dd>
+              {facts.map((f) => (
+                <div key={f.label} className={f.label === "Role" ? "col-span-2" : ""}>
+                  <dt className="text-eyebrow uppercase text-canvas/40">{f.label}</dt>
+                  <dd className="mt-1.5 text-sm text-canvas/85">{f.value}</dd>
                 </div>
-              )}
+              ))}
               {project.liveUrl && (
                 <div>
                   <dt className="text-eyebrow uppercase text-canvas/40">Live</dt>
@@ -89,12 +93,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="mt-12 sm:mt-14">
             <Media
               src={project.heroImage}
-              alt={project.name}
-              label={`${project.name} — hero image (1600×1000)`}
+              alt={`${project.name} website`}
+              label={project.name}
               ratio="16 / 10"
               tone="dark"
               rounded="rounded-t-xl2"
-              className="translate-y-px shadow-[0_32px_80px_-32px_rgba(0,0,0,0.5)]"
+              className="translate-y-px border-0 shadow-[0_32px_80px_-32px_rgba(0,0,0,0.5)]"
+              eager
             />
           </div>
         </Shell>
@@ -116,56 +121,88 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </Shell>
       </div>
 
-      {/* overview + highlights */}
+      {/* the brief */}
       <section className="bg-canvas py-16 sm:py-20 lg:py-24">
         <Shell>
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Eyebrow index="01">Overview</Eyebrow>
-              <p className="mt-6 font-display text-2xl leading-snug tracking-[-0.01em] sm:text-[28px]">
-                {project.overview}
-              </p>
+          <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <Eyebrow index="01">The brief</Eyebrow>
             </div>
-
-            <div className="lg:col-span-7">
-              <Eyebrow index="02">What I did</Eyebrow>
-              <ul className="mt-6">
-                {project.highlights.map((h, i) => (
-                  <Reveal key={h} delay={i * 70}>
-                    <li className="flex gap-5 border-t border-ink/10 py-6 last:border-b">
-                      <span className="mt-0.5 shrink-0 font-display text-sm text-ink/30">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-base leading-relaxed text-ink/75">
-                        {h}
-                      </span>
-                    </li>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
+            <p className="font-display text-2xl leading-snug tracking-[-0.01em] sm:text-[28px] lg:col-span-8">
+              {project.overview}
+            </p>
           </div>
         </Shell>
       </section>
 
-      {/* gallery */}
-      {project.gallery && project.gallery.length > 0 && (
+      {/* process, kickoff to launch */}
+      <section className="border-t border-ink/[0.07] bg-canvas pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24">
+        <Shell>
+          <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <Eyebrow index="02">Process</Eyebrow>
+              <h2 className="mt-5 font-display text-3xl tracking-[-0.01em] sm:text-4xl">
+                Kickoff to launch
+              </h2>
+            </div>
+
+            <ol className="relative lg:col-span-8">
+              {/* the timeline rail */}
+              <span
+                className="absolute bottom-3 left-[15px] top-3 w-px bg-ink/10"
+                aria-hidden
+              />
+              {project.process.map((step, i) => (
+                <li key={step.stage} className="relative pb-10 pl-14 last:pb-0">
+                  <Reveal delay={i * 70}>
+                    <span
+                      className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas"
+                      aria-hidden
+                    >
+                      {i + 1}
+                    </span>
+                    <h3 className="pt-1 font-display text-xl tracking-[-0.01em]">
+                      {step.stage}
+                    </h3>
+                    <p className="mt-2 max-w-[60ch] text-base leading-relaxed text-ink/65">
+                      {step.body}
+                    </p>
+                    {step.image && (
+                      <figure className="mt-6">
+                        <Media
+                          src={step.image}
+                          alt={step.caption ?? step.stage}
+                          ratio="16 / 10"
+                        />
+                        {step.caption && (
+                          <figcaption className="mt-3 text-xs text-ink/45">
+                            {step.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    )}
+                  </Reveal>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Shell>
+      </section>
+
+      {/* the result */}
+      {gallery.length > 0 && (
         <section className="bg-surface py-16 sm:py-20 lg:py-24">
           <Shell>
-            <Eyebrow index="03">Gallery</Eyebrow>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {project.gallery.map((g, i) => (
-                <Reveal
-                  key={g.caption}
-                  delay={(i % 2) * 80}
-                  className={i === 0 ? "sm:col-span-2" : ""}
-                >
+            <Eyebrow index="03">The result</Eyebrow>
+            <div className="mt-10 grid gap-10 sm:gap-14">
+              {gallery.map((g) => (
+                <Reveal key={g.caption}>
                   <figure>
                     <Media
                       src={g.image}
                       alt={g.caption}
-                      label={g.caption}
-                      ratio={i === 0 ? "16 / 9" : "4 / 3"}
+                      ratio="16 / 10"
+                      className="border-0"
                     />
                     <figcaption className="mt-3 text-xs text-ink/45">
                       {g.caption}
@@ -193,24 +230,30 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <Shell>
             <Link
               href={`/work/${next.slug}`}
-              className="group flex flex-col gap-6 rounded-panel border border-ink/[0.08] bg-surface p-7 transition-all duration-300 ease-ruul hover:border-ink/20 sm:flex-row sm:items-center sm:justify-between sm:p-10"
+              className="group grid items-center gap-6 overflow-hidden rounded-panel border border-ink/[0.08] bg-surface p-5 transition-all duration-300 ease-ruul hover:border-ink/20 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:p-6"
             >
-              <div>
-                <p className="text-eyebrow uppercase text-ink/40">
-                  Next project
-                </p>
+              <div className="px-2 sm:px-4">
+                <p className="text-eyebrow uppercase text-ink/40">Next project</p>
                 <p className="mt-3 font-display text-2xl tracking-[-0.01em] sm:text-3xl">
                   {next.name}
                 </p>
-                <p className="mt-1.5 text-sm text-ink/50">{next.discipline}</p>
+                <p className="mt-2 text-sm text-ink/55">{next.summary}</p>
+                <span className="mt-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink text-canvas transition-transform duration-300 ease-ruul group-hover:translate-x-1">
+                  <span aria-hidden>→</span>
+                </span>
               </div>
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-canvas transition-transform duration-300 ease-ruul group-hover:translate-x-1">
-                <span aria-hidden>→</span>
-              </span>
+              <Media
+                src={next.cardImage}
+                alt={`${next.name} project preview`}
+                label={next.name}
+                ratio="16 / 10"
+                rounded="rounded-card"
+                className="border-0"
+              />
             </Link>
 
             <p className="mt-8 text-sm text-ink/50">
-              Questions about this build?{" "}
+              Questions about this project?{" "}
               <a
                 href={`mailto:${profile.email}`}
                 className="text-forest underline underline-offset-4"

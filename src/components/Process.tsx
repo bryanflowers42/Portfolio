@@ -1,58 +1,40 @@
 import { process } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
-import Media from "./Media";
 import Reveal from "./Reveal";
 
+/* Five steps, read left to right on desktop and top to bottom on mobile. */
 export default function Process() {
   return (
     <Section id="process" tone="canvas">
       <Shell>
-        <SectionHeading index="03" eyebrow={process.eyebrow}>
-          {process.heading}
-        </SectionHeading>
-
-        <div className="mt-12 grid gap-6 lg:mt-16 lg:grid-cols-3">
-          {process.steps.map((step, i) => (
-            <Reveal key={step.number} delay={i * 90}>
-              <article className="flex h-full flex-col rounded-panel border border-ink/[0.08] bg-surface p-6 transition-colors duration-300 ease-ruul hover:border-ink/20 sm:p-7">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-xs text-canvas">
-                    {step.number}
-                  </span>
-                  <h3 className="font-display text-xl tracking-[-0.01em]">
-                    {step.title}
-                  </h3>
-                </div>
-
-                <p className="mt-4 text-sm leading-relaxed text-ink/65">
-                  {step.body}
-                </p>
-
-                <ul className="mt-5 space-y-3 border-t border-ink/[0.08] pt-5">
-                  {step.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-ink/70">
-                      <span
-                        className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-forest"
-                        aria-hidden
-                      />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6">
-                  <Media
-                    src={step.image}
-                    label={`Step ${step.number} visual`}
-                    ratio="4 / 3"
-                    rounded="rounded-card"
-                  />
-                </div>
-              </article>
-            </Reveal>
-          ))}
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <SectionHeading index="02" eyebrow={process.eyebrow}>
+            {process.heading}
+          </SectionHeading>
+          <p className="max-w-xs text-sm leading-relaxed text-ink/50">
+            {process.intro}
+          </p>
         </div>
 
+        <ol className="mt-12 grid gap-px overflow-hidden rounded-panel border border-ink/[0.08] bg-ink/[0.08] lg:mt-16 sm:grid-cols-2 lg:grid-cols-5">
+          {process.steps.map((step, i) => (
+            <li key={step.number} className="bg-surface">
+              <Reveal delay={i * 80} className="h-full">
+                <article className="flex h-full flex-col p-6 sm:p-7">
+                  <span className="font-display text-sm text-forest">
+                    {step.number}
+                  </span>
+                  <h3 className="mt-8 font-display text-2xl tracking-[-0.01em] lg:mt-12">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                    {step.body}
+                  </p>
+                </article>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
       </Shell>
     </Section>
   );

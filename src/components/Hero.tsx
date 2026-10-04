@@ -12,7 +12,7 @@ export default function Hero() {
         className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-lime/10 blur-[120px]"
         aria-hidden
       />
-      <Shell className="relative pb-0 pt-14 sm:pt-20 lg:pt-24">
+      <Shell className={`relative pt-14 sm:pt-20 lg:pt-24 ${hero.image ? "pb-0" : "pb-16 sm:pb-20 lg:pb-24"}`}>
         <Reveal>
           <div className="mx-auto max-w-[860px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-canvas/20 bg-canvas/[0.06] px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/80">
@@ -24,7 +24,7 @@ export default function Hero() {
               {hero.heading}
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[620px] text-base leading-relaxed text-canvas/70 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-[580px] text-base leading-relaxed text-canvas/70 sm:text-lg">
               {hero.body}
             </p>
 
@@ -40,24 +40,23 @@ export default function Hero() {
                 {hero.secondaryCta.label}
               </Button>
             </div>
-
-            <p className="mt-6 text-xs text-canvas/45">{hero.ticker}</p>
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <div className="mx-auto mt-12 max-w-[940px] sm:mt-16">
-            <Media
-              src={hero.image}
-              alt={hero.imageAlt}
-              label="Hero visual — 1600×1000 recommended"
-              ratio="16 / 10"
-              tone="dark"
-              className="shadow-[0_32px_80px_-32px_rgba(0,0,0,0.55)]"
-              rounded="rounded-t-xl2"
-            />
-          </div>
-        </Reveal>
+        {hero.image && (
+          <Reveal delay={120}>
+            <div className="mx-auto mt-12 max-w-[940px] sm:mt-16">
+              <Media
+                src={hero.image}
+                alt={hero.imageAlt}
+                ratio="16 / 10"
+                tone="dark"
+                className="shadow-[0_32px_80px_-32px_rgba(0,0,0,0.55)]"
+                rounded="rounded-t-xl2"
+              />
+            </div>
+          </Reveal>
+        )}
       </Shell>
 
       {/* quick contact strip */}

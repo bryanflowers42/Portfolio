@@ -6,7 +6,7 @@ import { Squiggle } from "./Decor";
 /* Five steps, read left to right on desktop and top to bottom on mobile. */
 export default function Process() {
   return (
-    <Section id="process" tone="canvas" className="relative overflow-hidden">
+    <Section id="process" tone="mint" className="relative overflow-hidden">
       <Shell className="relative">
         <Squiggle
           variant="arrow"
@@ -17,23 +17,23 @@ export default function Process() {
           <SectionHeading index="02" eyebrow={process.eyebrow}>
             {process.heading}
           </SectionHeading>
-          <p className="max-w-xs text-sm leading-relaxed text-ink/50">
+          <p className="max-w-xs text-sm leading-relaxed text-ink/60">
             {process.intro}
           </p>
         </div>
 
-        <ol className="mt-12 grid gap-px overflow-hidden rounded-panel border border-ink/[0.08] bg-ink/[0.08] lg:mt-16 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-12 grid gap-3 lg:mt-16 sm:grid-cols-2 lg:grid-cols-5">
           {process.steps.map((step, i) => (
-            <li key={step.number} className="bg-surface">
+            <li key={step.number}>
               <Reveal delay={i * 80} className="h-full">
-                <article className="flex h-full flex-col p-6 sm:p-7">
-                  <span className="font-display text-sm text-forest">
+                <article className="flex h-full flex-col rounded-panel bg-canvas p-6 shadow-[0_18px_40px_-30px_rgba(0,62,57,0.45)] sm:p-7">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lime font-display text-sm text-forest">
                     {step.number}
                   </span>
-                  <h3 className="mt-8 font-display text-2xl tracking-[-0.01em] lg:mt-12">
+                  <h3 className="mt-8 font-display text-2xl tracking-[-0.01em] lg:mt-10">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                  <p className="mt-3 text-sm leading-relaxed text-ink/65">
                     {step.body}
                   </p>
                 </article>

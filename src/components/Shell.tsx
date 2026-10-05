@@ -1,5 +1,6 @@
 /* Layout primitives. Small, boring, reused everywhere. */
 import type { ReactNode } from "react";
+import Marked from "./Marked";
 
 export function Shell({
   children,
@@ -20,11 +21,12 @@ export function Section({
   id?: string;
   children: ReactNode;
   className?: string;
-  tone?: "canvas" | "surface" | "forest" | "dark";
+  tone?: "canvas" | "surface" | "mint" | "forest" | "dark";
 }) {
   const tones = {
     canvas: "bg-canvas text-ink",
     surface: "bg-surface text-ink",
+    mint: "bg-mint text-ink",
     forest: "bg-forest text-canvas",
     dark: "bg-forest-dark text-canvas",
   } as const;
@@ -32,7 +34,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-24 py-16 sm:py-20 lg:py-28 ${tones[tone]} ${className}`}
+      className={`scroll-mt-28 py-16 sm:py-20 lg:py-28 ${tones[tone]} ${className}`}
     >
       {children}
     </section>
@@ -87,7 +89,11 @@ export function SectionHeading({
           invert ? "text-canvas" : "text-ink"
         }`}
       >
-        {children}
+        {typeof children === "string" ? (
+          <Marked text={children} invert={invert} />
+        ) : (
+          children
+        )}
       </h2>
     </div>
   );

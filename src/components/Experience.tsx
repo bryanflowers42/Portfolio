@@ -7,6 +7,8 @@ import {
 import { Section, Shell, SectionHeading, Eyebrow } from "./Shell";
 import Reveal from "./Reveal";
 import { Squiggle } from "./Decor";
+import Marked from "./Marked";
+import { GraduationCap } from "lucide-react";
 
 function JobRow({ job, delay = 0 }: { job: Job; delay?: number }) {
   return (
@@ -66,7 +68,7 @@ export default function Experience() {
 
         {/* Previous employment */}
         {previousExperience.jobs.length > 0 && (
-          <div id="previous" className="mt-16 scroll-mt-24">
+          <div id="previous" className="mt-16 scroll-mt-28">
             <Reveal>
               <div className="max-w-[672px]">
                 <Eyebrow>{previousExperience.eyebrow}</Eyebrow>
@@ -86,39 +88,58 @@ export default function Experience() {
           </div>
         )}
 
-        {/* Education */}
-        <Reveal>
-          <div className="mt-14 rounded-panel border border-ink/[0.08] bg-surface p-7 sm:p-10">
-            <Eyebrow>{education.eyebrow}</Eyebrow>
-            <h3 className="mt-4 max-w-xl font-display text-2xl tracking-[-0.01em] sm:text-3xl">
-              {education.heading}
-            </h3>
-
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {education.schools.map((s, i) => (
-                <div
-                  key={s.degree}
-                  className={`rounded-card border bg-canvas p-5 ${
-                    i === 0
-                      ? "border-forest/30 ring-1 ring-forest/10"
-                      : "border-ink/[0.08]"
-                  }`}
-                >
-                  {i === 0 && (
-                    <p className="mb-2 text-eyebrow uppercase text-forest">
-                      Master&rsquo;s degree
-                    </p>
-                  )}
-                  <p className="font-medium tracking-[-0.01em]">{s.school}</p>
-                  <p className="mt-1 text-xs text-ink/45">{s.dates}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
-                    {s.degree}
-                  </p>
-                </div>
-              ))}
+        {/* Education: Michigan campus photos with each degree */}
+        <div className="mt-16 rounded-xl2 bg-mint p-6 sm:p-10">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-xl">
+              <Eyebrow>{education.eyebrow}</Eyebrow>
+              <h3 className="mt-4 font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
+                <Marked text={education.heading} />
+              </h3>
             </div>
+            <GraduationCap className="hidden h-12 w-12 text-leaf md:block" strokeWidth={1.5} aria-hidden />
           </div>
-        </Reveal>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {education.schools.map((s, i) => (
+              <Reveal key={s.degree} delay={i * 90}>
+                <figure className="group h-full overflow-hidden rounded-panel bg-canvas shadow-[0_18px_40px_-30px_rgba(0,62,57,0.45)]">
+                  {s.image && (
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={s.image}
+                        alt={s.imageAlt ?? s.school}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-ruul group-hover:scale-[1.03]"
+                      />
+                      <span className="absolute left-4 top-4 rounded-full bg-forest/85 px-3 py-1 text-xs text-canvas backdrop-blur">
+                        {s.dates}
+                      </span>
+                      {s.credit && (
+                        <span className="absolute bottom-2 right-3 text-[10px] text-canvas/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+                          {s.credit}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <figcaption className="p-6">
+                    <p className="text-eyebrow uppercase text-forest/70">
+                      {s.school}
+                    </p>
+                    <p className="mt-2 font-display text-xl leading-snug tracking-[-0.01em]">
+                      {s.degree}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/60">
+                      {s.note}
+                    </p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </Shell>
     </Section>
   );

@@ -11,7 +11,7 @@ export default function WorkGrid() {
   const items = featuredProjects();
 
   return (
-    <Section id="work" tone="surface">
+    <Section id="work" tone="surface" className="bg-[linear-gradient(180deg,#EAF3DF_0%,#F1F4F0_520px)]">
       <Shell>
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

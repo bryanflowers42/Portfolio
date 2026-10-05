@@ -19,6 +19,7 @@ const config: Config = {
         "forest-dark": "#002B28",
         lime: "#D3F969",
         leaf: "#8CC63F", // lime's deeper sibling, for line work on light backgrounds
+        mint: "#EAF3DF", // pale green wash for light sections
         grid: "#D8D9D3",
         danger: "#EA384C",
         info: "#3898EC",

@@ -5,7 +5,7 @@ import { FlowLines } from "./Decor";
 
 export default function CtaBand() {
   return (
-    <div id="contact" className="scroll-mt-24 bg-canvas py-16 sm:py-20 lg:py-24">
+    <div id="contact" className="scroll-mt-28 bg-canvas py-16 sm:py-20 lg:py-24">
       <Shell>
         <div className="relative overflow-hidden rounded-xl2 bg-forest px-6 py-14 text-center text-canvas sm:px-12 sm:py-20">
           <div

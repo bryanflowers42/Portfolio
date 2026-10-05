@@ -1,8 +1,9 @@
-import { hero, profile } from "@/content/site";
+import { hero } from "@/content/site";
 import { Shell } from "./Shell";
 import Button from "./Button";
 import Media from "./Media";
 import Reveal from "./Reveal";
+import Marked from "./Marked";
 import { FlowLines } from "./Decor";
 
 export default function Hero() {
@@ -14,10 +15,14 @@ export default function Hero() {
         aria-hidden
       />
       <FlowLines
-        className="absolute inset-x-0 bottom-10 h-[220px] w-full text-lime sm:h-[280px]"
+        className="absolute inset-x-0 bottom-0 h-[220px] w-full text-lime sm:h-[280px]"
         opacity={0.3}
       />
-      <Shell className={`relative pt-14 sm:pt-20 lg:pt-24 ${hero.image ? "pb-0" : "pb-16 sm:pb-20 lg:pb-24"}`}>
+      <Shell
+        className={`relative pt-14 sm:pt-20 lg:pt-24 ${
+          hero.image ? "pb-0" : "pb-20 sm:pb-24 lg:pb-28"
+        }`}
+      >
         <Reveal>
           <div className="mx-auto max-w-[860px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-canvas/20 bg-canvas/[0.06] px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/80">
@@ -25,11 +30,11 @@ export default function Hero() {
               {hero.chip}
             </span>
 
-            <h1 className="mt-7 text-display-sm text-canvas sm:text-[44px] lg:text-display-lg">
-              {hero.heading}
+            <h1 className="mt-7 text-display-sm text-canvas sm:text-[48px] lg:text-display-lg">
+              <Marked text={hero.heading} invert />
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[580px] text-base leading-relaxed text-canvas/70 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-[600px] text-base leading-relaxed text-canvas/70 sm:text-lg">
               {hero.body}
             </p>
 
@@ -63,21 +68,6 @@ export default function Hero() {
           </Reveal>
         )}
       </Shell>
-
-      {/* quick contact strip */}
-      <div className="border-t border-canvas/10 bg-forest-dark">
-        <Shell className="flex flex-col items-center justify-between gap-2 py-4 text-xs text-canvas/50 sm:flex-row">
-          <p>{profile.title} in {profile.location}</p>
-          <p className="flex items-center gap-4">
-            <a className="transition-colors hover:text-lime" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>
-            <a className="transition-colors hover:text-lime" href={`tel:${profile.phoneHref}`}>
-              {profile.phone}
-            </a>
-          </p>
-        </Shell>
-      </div>
     </section>
   );
 }

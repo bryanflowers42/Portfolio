@@ -142,7 +142,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* process, kickoff to launch */}
-      <section className="border-t border-ink/[0.07] bg-canvas pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24">
+      <section className="bg-mint pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24">
         <Shell>
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -165,7 +165,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       otherwise make it the containing block and shift the
                       marker off the rail */}
                   <span
-                    className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas ring-4 ring-canvas"
+                    className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas ring-4 ring-mint"
                     aria-hidden
                   >
                     {i + 1}

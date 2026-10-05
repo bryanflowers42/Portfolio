@@ -34,7 +34,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-28 py-16 sm:py-20 lg:py-28 ${tones[tone]} ${className}`}
+      className={`scroll-mt-24 py-16 sm:py-20 lg:py-28 ${tones[tone]} ${className}`}
     >
       {children}
     </section>
@@ -69,14 +69,22 @@ export function SectionHeading({
   eyebrow,
   children,
   invert = false,
+  size = "md",
   className = "",
 }: {
   index?: string;
   eyebrow?: string;
   children: ReactNode;
   invert?: boolean;
+  /** "sm" for sentence length headings that would feel shouty at full size */
+  size?: "sm" | "md";
   className?: string;
 }) {
+  const sizes = {
+    sm: "text-[30px] leading-[1.15] tracking-[-0.01em] md:text-[34px] lg:text-[38px]",
+    md: "text-display-sm md:text-[42px] lg:text-display-md",
+  } as const;
+
   return (
     <div className={`max-w-[672px] ${className}`}>
       {eyebrow && (
@@ -85,7 +93,7 @@ export function SectionHeading({
         </Eyebrow>
       )}
       <h2
-        className={`mt-5 text-display-sm md:text-[42px] lg:text-display-md ${
+        className={`mt-5 ${sizes[size]} ${
           invert ? "text-canvas" : "text-ink"
         }`}
       >

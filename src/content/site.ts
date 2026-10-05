@@ -79,7 +79,6 @@ export const nav: NavLink[] = [
   { label: "Experience", href: "/#experience" },
 ];
 
-export const navCta = { label: "Get in touch", href: "/#contact" };
 
 /* ---------- hero ---------- */
 
@@ -156,26 +155,26 @@ export const process = {
 
 export const spotlight = {
   eyebrow: "About",
-  heading: "I like *making new things* and figuring out how to make them work.",
+  heading: "I love *making new things* and solving problems.",
   body: "Web design checks every box for me. I get to be creative, build something that didn't exist yesterday, and solve a bunch of little problems along the way. I'm always looking for the next thing to learn, and every project seems to have one.",
   cards: [
     {
       label: "Team",
       title: "Working across a bigger company",
       body: "I'm on a web team of about 10 inside a company of around 100, so I work across teams a lot. Most days that's alongside project managers, and I've worked with clients directly when a project needed it.",
-      chips: ["Project managers", "Cross team work", "Client calls"],
+      icon: "team",
     },
     {
       label: "Mentoring",
       title: "Helping a junior designer grow",
       body: "I've managed a junior designer for over a year now, and he's since earned a promotion of his own. Watching that happen has been one of my favorite parts of the job.",
-      chips: ["Day to day lead", "Reviews", "Promotion"],
+      icon: "mentor",
     },
     {
       label: "Platforms",
       title: "Comfortable on any builder",
       body: "WordPress and Elementor are home base, front end and back end. I'm just as comfortable in Webflow, Wix, or whatever else a project runs on, and I use Claude to move faster.",
-      chips: ["WordPress", "Elementor", "Webflow", "Wix", "Claude"],
+      icon: "builder",
     },
   ],
 };
@@ -193,14 +192,19 @@ export const capabilities = {
   tools: [
     { label: "WordPress", icon: "wordpress" },
     { label: "Elementor", icon: "elementor" },
+    { label: "ACF", icon: "acf" },
     { label: "Webflow", icon: "webflow" },
     { label: "Wix", icon: "wix" },
     { label: "Figma", icon: "figma" },
+    { label: "Photoshop", icon: "photoshop" },
+    { label: "Illustrator", icon: "illustrator" },
+    { label: "Premiere Pro", icon: "premiere" },
     { label: "Claude", icon: "claude" },
     { label: "HTML", icon: "html" },
     { label: "CSS", icon: "css" },
     { label: "JavaScript", icon: "javascript" },
     { label: "PHP", icon: "php" },
+    { label: "Lighthouse", icon: "lighthouse" },
   ] as Skill[],
   groups: [
     {
@@ -228,14 +232,14 @@ export const capabilities = {
         { label: "Responsive design", icon: "responsive" },
         { label: "ADA compliance", icon: "accessibility" },
         { label: "Landing pages", icon: "landing" },
-        { label: "Core Web Vitals", icon: "speed" },
+        { label: "Core Web Vitals", icon: "lighthouse" },
       ],
     },
     {
       title: "Backend & build",
       items: [
-        { label: "WordPress backend", icon: "server" },
-        { label: "Custom fields (ACF)", icon: "database" },
+        { label: "WordPress backend", icon: "wordpress" },
+        { label: "Custom fields (ACF)", icon: "acf" },
         { label: "Plugins & integrations", icon: "plugin" },
         { label: "Reusable templates", icon: "templates" },
       ],
@@ -243,9 +247,9 @@ export const capabilities = {
     {
       title: "Graphic design",
       items: [
-        { label: "Photoshop", icon: "photo" },
-        { label: "Illustrator", icon: "pen" },
-        { label: "Premiere Pro", icon: "video" },
+        { label: "Photoshop", icon: "photoshop" },
+        { label: "Illustrator", icon: "illustrator" },
+        { label: "Premiere Pro", icon: "premiere" },
         { label: "Branding", icon: "palette" },
         { label: "Typography", icon: "type" },
       ],

@@ -1,7 +1,7 @@
 import { capabilities } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Reveal from "./Reveal";
-import SkillIcon from "./SkillIcon";
+import SkillIcon, { isLogo } from "./SkillIcon";
 import { FlowLines } from "./Decor";
 
 export default function Capabilities() {
@@ -48,8 +48,13 @@ export default function Capabilities() {
                 <ul className="mt-5 space-y-3">
                   {group.items.map((item) => (
                     <li key={item.label} className="flex items-center gap-3 text-sm text-canvas/85">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-canvas/[0.08] text-accent">
-                        <SkillIcon icon={item.icon} className="h-4 w-4" />
+                      {/* real logos sit on a light tile so their brand colors read */}
+                      <span
+                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                          isLogo(item.icon) ? "bg-canvas" : "bg-canvas/[0.08] text-accent"
+                        }`}
+                      >
+                        <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-5 w-5" : "h-4 w-4"} />
                       </span>
                       {item.label}
                     </li>

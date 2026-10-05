@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { nav, navCta, profile } from "@/content/site";
+import { nav, profile } from "@/content/site";
 import { Mail, Phone } from "lucide-react";
-import Button from "./Button";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -32,26 +31,6 @@ export default function SiteHeader() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      {/* contact bar: email and phone always one tap away */}
-      <div className="bg-navy-dark text-canvas/75">
-        <div className="shell flex h-9 items-center justify-center gap-5 text-xs sm:justify-end sm:gap-6">
-          <a
-            href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
-          >
-            <Mail className="h-3.5 w-3.5" aria-hidden />
-            {profile.email}
-          </a>
-          <a
-            href={`tel:${profile.phoneHref}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
-          >
-            <Phone className="h-3.5 w-3.5" aria-hidden />
-            {profile.phone}
-          </a>
-        </div>
-      </div>
-
       <div className="shell flex h-16 items-center justify-between gap-6 lg:h-[72px]">
         {/* Wordmark: just the name, set in the display serif */}
         <Link href="/" onClick={() => setOpen(false)}>
@@ -72,16 +51,51 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        {/* email + phone as the header's two buttons; on mid-size screens
+            they shrink to icons so the nav still fits */}
+        <div className="hidden items-center gap-2 md:flex">
           <a
             href={profile.resumeHref}
-            className="text-sm tracking-[-0.01em] text-ink/70 transition-colors hover:text-ink"
+            className="mr-2 text-sm tracking-[-0.01em] text-ink/70 transition-colors hover:text-ink"
           >
             Résumé
           </a>
-          <Button href={navCta.href} variant="primary">
-            {navCta.label}
-          </Button>
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label={`Email ${profile.email}`}
+            title={profile.email}
+            className={`${contactBtn} bg-ink text-canvas hover:bg-navy`}
+          >
+            <Mail className="h-4 w-4 shrink-0" aria-hidden />
+            <span className="hidden xl:inline">{profile.email}</span>
+          </a>
+          <a
+            href={`tel:${profile.phoneHref}`}
+            aria-label={`Call ${profile.phone}`}
+            title={profile.phone}
+            className={`${contactBtn} border border-ink/15 text-ink hover:border-ink/40`}
+          >
+            <Phone className="h-4 w-4 shrink-0" aria-hidden />
+            <span className="hidden xl:inline">{profile.phone}</span>
+          </a>
+        </div>
+
+        {/* phones: email and phone stay one tap away beside the menu */}
+        <div className="-mr-3 ml-auto flex items-center gap-2 md:hidden">
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label={`Email ${profile.email}`}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-canvas"
+          >
+            <Mail className="h-4 w-4" aria-hidden />
+          </a>
+          <a
+            href={`tel:${profile.phoneHref}`}
+            aria-label={`Call ${profile.phone}`}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+          </a>
         </div>
 
         <button
@@ -131,15 +145,26 @@ export default function SiteHeader() {
           >
             Résumé
           </a>
-          <Button
-            href={navCta.href}
-            variant="primary"
-            className="mt-3 w-full"
+          <a
+            href={`mailto:${profile.email}`}
+            className={`${contactBtn} mt-3 w-full justify-center bg-ink text-canvas`}
           >
-            {navCta.label}
-          </Button>
+            <Mail className="h-4 w-4" aria-hidden />
+            {profile.email}
+          </a>
+          <a
+            href={`tel:${profile.phoneHref}`}
+            className={`${contactBtn} mt-2 w-full justify-center border border-ink/15 text-ink`}
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {profile.phone}
+          </a>
         </div>
       </div>
     </header>
   );
 }
+
+/* shared shape for the email / phone buttons */
+const contactBtn =
+  "inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3.5 text-sm font-medium tracking-[-0.01em] transition-all duration-300 ease-ruul xl:px-5";

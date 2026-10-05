@@ -68,7 +68,7 @@ export default function Experience() {
 
         {/* Previous employment */}
         {previousExperience.jobs.length > 0 && (
-          <div id="previous" className="mt-16 scroll-mt-28">
+          <div id="previous" className="mt-16 scroll-mt-24">
             <Reveal>
               <div className="max-w-[672px]">
                 <Eyebrow>{previousExperience.eyebrow}</Eyebrow>

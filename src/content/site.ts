@@ -33,9 +33,6 @@ export type School = {
   dates: string;
   degree: string;
   note: string;
-  image?: string | null;
-  imageAlt?: string;
-  credit?: string; // photo credit, shown small under the image when set
 };
 export type Faq = { q: string; a: string };
 export type Testimonial = { quote: string; name: string; org: string };
@@ -83,7 +80,7 @@ export const nav: NavLink[] = [
 /* ---------- hero ---------- */
 
 export const hero = {
-  chip: "Senior Web Designer at Youtech",
+  chip: "Senior Web Designer",
   heading: "I design and build websites, *start to finish.*",
   body: "I love being creative, making new things, and figuring out the tricky parts, on whatever platform a project calls for.",
   primaryCta: { label: "See the work", href: "/#work" },
@@ -136,7 +133,7 @@ export const process = {
     {
       number: "03",
       title: "Design",
-      body: "Wireframes first, then full mockups in Figma. We go back and forth until it feels right.",
+      body: "I go straight to full mockups in Figma, then we go back and forth until it feels right.",
     },
     {
       number: "04",
@@ -197,7 +194,6 @@ export const capabilities = {
     { label: "Wix", icon: "wix" },
     { label: "Figma", icon: "figma" },
     { label: "Photoshop", icon: "photoshop" },
-    { label: "Illustrator", icon: "illustrator" },
     { label: "Premiere Pro", icon: "premiere" },
     { label: "Claude", icon: "claude" },
     { label: "HTML", icon: "html" },
@@ -248,7 +244,6 @@ export const capabilities = {
       title: "Graphic design",
       items: [
         { label: "Photoshop", icon: "photoshop" },
-        { label: "Illustrator", icon: "illustrator" },
         { label: "Premiere Pro", icon: "premiere" },
         { label: "Branding", icon: "palette" },
         { label: "Typography", icon: "type" },
@@ -330,6 +325,12 @@ export const previousExperience = {
 
 export const education = {
   eyebrow: "Education",
+  school: "University of Michigan",
+  campus: "Ann Arbor",
+  logo: "/images/logos/umich-block-m.svg",
+  background: "/images/education/burton-tower.jpg",
+  backgroundAlt: "Burton Memorial Tower on the University of Michigan campus",
+  credit: "Photo: Cbl62, CC BY 3.0",
   heading: "I studied how people think, then how to *build for them.*",
   schools: [
     {
@@ -337,17 +338,12 @@ export const education = {
       dates: "2021 to 2023",
       degree: "M.S. in User Centered Agile Development",
       note: "How to build products around real users, on real deadlines.",
-      image: "/images/education/burton-tower.jpg",
-      imageAlt: "Burton Memorial Tower on the University of Michigan campus on a sunny fall day",
-      credit: "Photo: Cbl62, CC BY 3.0",
     },
     {
       school: "University of Michigan",
       dates: "2017 to 2021",
       degree: "B.S. in Cognitive Science, minor in Computer Science",
       note: "How people see, think, and make decisions, plus the code side of things.",
-      image: "/images/education/hatcher-library.jpg",
-      imageAlt: "The brick facade of the Hatcher Graduate Library at the University of Michigan",
     },
   ] as School[],
 };

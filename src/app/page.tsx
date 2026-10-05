@@ -16,8 +16,8 @@ export default function HomePage() {
     <>
       <Hero />
       <WorkGrid />
-      <Process />
       <Stats />
+      <Process />
       <Spotlight />
       <Experience />
       <Capabilities />

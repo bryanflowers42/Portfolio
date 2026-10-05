@@ -22,13 +22,13 @@ export default function Capabilities() {
         </div>
 
         {/* logo wall: the platforms and tools I use most */}
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-5 lg:mt-14">
+        <ul className="mt-12 grid grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3 lg:mt-14 lg:grid-cols-7">
           {capabilities.tools.map((tool, i) => (
             <li key={tool.label}>
-              <Reveal delay={(i % 5) * 50} className="h-full">
-                <div className="flex h-full flex-col items-center justify-center gap-3 rounded-panel bg-canvas px-3 py-5 text-center transition-transform duration-300 ease-ruul hover:-translate-y-1">
-                  <SkillIcon icon={tool.icon} className="h-9 w-9" />
-                  <span className="text-xs font-medium tracking-[-0.01em] text-ink/75">
+              <Reveal delay={(i % 7) * 50} className="h-full">
+                <div className="flex h-full flex-col items-center justify-center gap-2.5 rounded-panel bg-canvas px-2 py-4 text-center sm:gap-3 sm:px-3 sm:py-5">
+                  <SkillIcon icon={tool.icon} className="h-8 w-8 sm:h-9 sm:w-9" />
+                  <span className="text-[11px] font-medium leading-tight tracking-[-0.01em] text-ink/75 sm:text-xs">
                     {tool.label}
                   </span>
                 </div>
@@ -48,12 +48,8 @@ export default function Capabilities() {
                 <ul className="mt-5 space-y-3">
                   {group.items.map((item) => (
                     <li key={item.label} className="flex items-center gap-3 text-sm text-canvas/85">
-                      {/* real logos sit on a light tile so their brand colors read */}
-                      <span
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
-                          isLogo(item.icon) ? "bg-canvas" : "bg-canvas/[0.08] text-accent"
-                        }`}
-                      >
+                      {/* every icon sits on the same white tile, logo or not */}
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-canvas text-azure">
                         <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-5 w-5" : "h-4 w-4"} />
                       </span>
                       {item.label}

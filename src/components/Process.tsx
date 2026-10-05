@@ -26,11 +26,11 @@ export default function Process() {
           {process.steps.map((step, i) => (
             <li key={step.number}>
               <Reveal delay={i * 80} className="h-full">
-                <article className="flex h-full flex-col rounded-panel bg-canvas p-6 shadow-[0_18px_40px_-30px_rgba(11,42,74,0.45)] sm:p-7">
+                <article className="flex h-full flex-col rounded-panel bg-canvas p-5 shadow-[0_18px_40px_-30px_rgba(11,42,74,0.45)] sm:p-7">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-display text-sm text-navy">
                     {step.number}
                   </span>
-                  <h3 className="mt-8 font-display text-2xl tracking-[-0.01em] lg:mt-10">
+                  <h3 className="mt-4 font-display text-2xl tracking-[-0.01em] sm:mt-8 lg:mt-10">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink/65">

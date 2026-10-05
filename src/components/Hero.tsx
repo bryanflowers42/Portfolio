@@ -44,7 +44,7 @@ export default function Hero() {
               </Button>
               <Button
                 href={hero.secondaryCta.href}
-                variant="outlineLight"
+                variant="blue"
                 className="w-full sm:w-auto"
               >
                 {hero.secondaryCta.label}

@@ -8,7 +8,6 @@ import { Section, Shell, SectionHeading, Eyebrow } from "./Shell";
 import Reveal from "./Reveal";
 import { Squiggle } from "./Decor";
 import Marked from "./Marked";
-import { GraduationCap } from "lucide-react";
 
 function JobRow({ job, delay = 0 }: { job: Job; delay?: number }) {
   return (
@@ -88,57 +87,59 @@ export default function Experience() {
           </div>
         )}
 
-        {/* Education: Michigan campus photos with each degree */}
-        <div className="mt-16 rounded-xl2 bg-mist p-6 sm:p-10">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-xl">
-              <Eyebrow>{education.eyebrow}</Eyebrow>
-              <h3 className="mt-4 font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
-                <Marked text={education.heading} />
-              </h3>
-            </div>
-            <GraduationCap className="hidden h-12 w-12 text-azure md:block" strokeWidth={1.5} aria-hidden />
-          </div>
+        {/* Education: one campus photo behind the block, Block M up top */}
+        <div className="relative mt-16 overflow-hidden rounded-xl2 bg-[#00274C] text-canvas">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={education.background}
+            alt={education.backgroundAlt}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* Michigan blue wash keeps the text readable over the photo */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#00274C]/95 via-[#00274C]/85 to-[#00274C]/60" aria-hidden />
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {education.schools.map((s, i) => (
-              <Reveal key={s.degree} delay={i * 90}>
-                <figure className="group h-full overflow-hidden rounded-panel bg-canvas shadow-[0_18px_40px_-30px_rgba(11,42,74,0.45)]">
-                  {s.image && (
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={s.image}
-                        alt={s.imageAlt ?? s.school}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition-transform duration-700 ease-ruul group-hover:scale-[1.03]"
-                      />
-                      <span className="absolute left-4 top-4 rounded-full bg-navy/85 px-3 py-1 text-xs text-canvas backdrop-blur">
-                        {s.dates}
-                      </span>
-                      {s.credit && (
-                        <span className="absolute bottom-2 right-3 text-[10px] text-canvas/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
-                          {s.credit}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                  <figcaption className="p-6">
-                    <p className="text-eyebrow uppercase text-navy/70">
-                      {s.school}
+          <div className="relative p-6 sm:p-10 lg:p-12">
+            <div className="flex items-center gap-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={education.logo}
+                alt="University of Michigan Block M"
+                className="h-12 w-auto sm:h-14"
+              />
+              <div>
+                <p className="font-display text-xl leading-tight sm:text-2xl">{education.school}</p>
+                <p className="text-sm text-canvas/70">{education.campus}</p>
+              </div>
+            </div>
+
+            <h3 className="mt-8 max-w-2xl font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
+              <Marked text={education.heading} invert />
+            </h3>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {education.schools.map((s, i) => (
+                <Reveal key={s.degree} delay={i * 90} className="h-full">
+                  <div className="h-full rounded-panel border border-canvas/15 bg-canvas/10 p-6 backdrop-blur-sm">
+                    <p className="inline-flex rounded-full bg-[#FFCB05] px-3 py-1 text-xs font-medium text-[#00274C]">
+                      {s.dates}
                     </p>
-                    <p className="mt-2 font-display text-xl leading-snug tracking-[-0.01em]">
+                    <p className="mt-4 font-display text-xl leading-snug tracking-[-0.01em]">
                       {s.degree}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/60">
+                    <p className="mt-2 text-sm leading-relaxed text-canvas/75">
                       {s.note}
                     </p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
+
+          <span className="absolute bottom-2 right-3 text-[10px] text-canvas/60">
+            {education.credit}
+          </span>
         </div>
       </Shell>
     </Section>

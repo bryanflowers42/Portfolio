@@ -134,7 +134,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <Eyebrow index="01">The brief</Eyebrow>
               <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-azure lg:block" strokeWidth={4} />
             </div>
-            <p className="font-display text-2xl leading-snug tracking-[-0.01em] sm:text-[28px] lg:col-span-8">
+            <p className="font-display text-xl leading-snug tracking-[-0.01em] sm:text-2xl lg:col-span-8 lg:text-[28px]">
               {project.overview}
             </p>
           </div>

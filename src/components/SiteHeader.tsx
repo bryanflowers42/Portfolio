@@ -56,7 +56,7 @@ export default function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <a
             href={profile.resumeHref}
-            className="mr-2 text-sm tracking-[-0.01em] text-ink/70 transition-colors hover:text-ink"
+            className="mr-2 text-sm font-medium tracking-[-0.01em] text-azure transition-colors hover:text-navy"
           >
             Résumé
           </a>
@@ -64,7 +64,7 @@ export default function SiteHeader() {
             href={`mailto:${profile.email}`}
             aria-label={`Email ${profile.email}`}
             title={profile.email}
-            className={`${contactBtn} bg-ink text-canvas hover:bg-navy`}
+            className={`${contactBtn} ${blueBtn}`}
           >
             <Mail className="h-4 w-4 shrink-0" aria-hidden />
             <span className="hidden xl:inline">{profile.email}</span>
@@ -73,7 +73,7 @@ export default function SiteHeader() {
             href={`tel:${profile.phoneHref}`}
             aria-label={`Call ${profile.phone}`}
             title={profile.phone}
-            className={`${contactBtn} border border-ink/15 text-ink hover:border-ink/40`}
+            className={`${contactBtn} ${blueBtn}`}
           >
             <Phone className="h-4 w-4 shrink-0" aria-hidden />
             <span className="hidden xl:inline">{profile.phone}</span>
@@ -85,14 +85,14 @@ export default function SiteHeader() {
           <a
             href={`mailto:${profile.email}`}
             aria-label={`Email ${profile.email}`}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-canvas"
+            className={`flex h-10 w-10 items-center justify-center rounded-full ${blueBtn}`}
           >
             <Mail className="h-4 w-4" aria-hidden />
           </a>
           <a
             href={`tel:${profile.phoneHref}`}
             aria-label={`Call ${profile.phone}`}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink"
+            className={`flex h-10 w-10 items-center justify-center rounded-full ${blueBtn}`}
           >
             <Phone className="h-4 w-4" aria-hidden />
           </a>
@@ -141,20 +141,20 @@ export default function SiteHeader() {
           ))}
           <a
             href={profile.resumeHref}
-            className="rounded-card px-2 py-3 text-lg tracking-[-0.01em] text-ink/80"
+            className="rounded-card px-2 py-3 text-lg font-medium tracking-[-0.01em] text-azure"
           >
             Résumé
           </a>
           <a
             href={`mailto:${profile.email}`}
-            className={`${contactBtn} mt-3 w-full justify-center bg-ink text-canvas`}
+            className={`${contactBtn} ${blueBtn} mt-3 w-full justify-center`}
           >
             <Mail className="h-4 w-4" aria-hidden />
             {profile.email}
           </a>
           <a
             href={`tel:${profile.phoneHref}`}
-            className={`${contactBtn} mt-2 w-full justify-center border border-ink/15 text-ink`}
+            className={`${contactBtn} ${blueBtn} mt-2 w-full justify-center`}
           >
             <Phone className="h-4 w-4" aria-hidden />
             {profile.phone}
@@ -165,6 +165,7 @@ export default function SiteHeader() {
   );
 }
 
-/* shared shape for the email / phone buttons */
+/* shared shape and color for the email / phone buttons (always the same blue) */
+const blueBtn = "bg-azure text-white hover:bg-[#2F77E0]";
 const contactBtn =
   "inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3.5 text-sm font-medium tracking-[-0.01em] transition-all duration-300 ease-ruul xl:px-5";

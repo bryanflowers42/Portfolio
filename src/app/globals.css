@@ -49,12 +49,12 @@
     background-size: 24px 24px;
   }
 
-  /* Accent highlighter swipe behind a word or two in a heading */
+  /* Maize highlighter swipe behind a word or two in a heading */
   .marker {
     background-image: linear-gradient(
       transparent 58%,
-      #8FD0FF 58%,
-      #8FD0FF 92%,
+      #ffcb05 58%,
+      #ffcb05 92%,
       transparent 92%
     );
     padding: 0 0.08em;

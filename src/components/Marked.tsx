@@ -1,5 +1,5 @@
-/* Renders copy where *words in asterisks* get the accent highlighter.
-   On dark backgrounds the highlight becomes accent colored text instead. */
+/* Renders copy where *words in asterisks* get the maize highlighter.
+   On dark backgrounds the highlight becomes maize text instead. */
 export default function Marked({
   text,
   invert = false,
@@ -12,7 +12,7 @@ export default function Marked({
     <>
       {parts.map((part, i) =>
         part.startsWith("*") && part.endsWith("*") ? (
-          <span key={i} className={invert ? "text-accent" : "marker"}>
+          <span key={i} className={invert ? "text-sun" : "marker"}>
             {part.slice(1, -1)}
           </span>
         ) : (

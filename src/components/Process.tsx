@@ -27,7 +27,7 @@ export default function Process() {
             <li key={step.number}>
               <Reveal delay={i * 80} className="h-full">
                 <article className="flex h-full flex-col rounded-panel bg-canvas p-5 shadow-[0_18px_40px_-30px_rgba(11,42,74,0.45)] sm:p-7">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-display text-sm text-navy">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sun font-display text-sm text-navy">
                     {step.number}
                   </span>
                   <h3 className="mt-4 font-display text-2xl tracking-[-0.01em] sm:mt-8 lg:mt-10">

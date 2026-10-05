@@ -127,7 +127,7 @@ export default function Experience() {
               {education.schools.map((s, i) => (
                 <Reveal key={s.degree} delay={i * 90} className="h-full">
                   <div className="h-full rounded-panel border border-canvas/15 bg-canvas/10 p-5 backdrop-blur-sm sm:p-6">
-                    <p className="inline-flex rounded-full bg-[#FFCB05] px-3 py-1 text-xs font-medium text-[#00274C]">
+                    <p className="inline-flex rounded-full bg-sun px-3 py-1 text-xs font-medium text-[#00274C]">
                       {s.dates}
                     </p>
                     <p className="mt-4 font-display text-xl leading-snug tracking-[-0.01em]">

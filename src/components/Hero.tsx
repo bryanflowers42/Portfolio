@@ -26,7 +26,7 @@ export default function Hero() {
         <Reveal>
           <div className="mx-auto max-w-[860px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-canvas/25 bg-navy/60 px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/85 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+              <span className="h-1.5 w-1.5 rounded-full bg-sun" aria-hidden />
               {hero.chip}
             </span>
 

@@ -22,7 +22,7 @@ export default function Stats() {
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 70}>
               <div className="border-l border-canvas/20 pl-5 lg:pl-6">
-                <p className="font-display text-5xl tracking-[-0.02em] text-accent sm:text-6xl">
+                <p className="font-display text-5xl tracking-[-0.02em] text-sun sm:text-6xl">
                   {s.value}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-canvas/80">

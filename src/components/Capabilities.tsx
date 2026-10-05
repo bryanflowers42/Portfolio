@@ -37,32 +37,38 @@ export default function Capabilities() {
           ))}
         </ul>
 
-        {/* everything else, grouped: compact rows of white pills, each with
-            its icon or logo, so the whole list reads at a glance */}
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.groups.map((group, i) => (
-            <Reveal key={group.title} delay={(i % 3) * 80}>
-              <div className="h-full rounded-panel border border-canvas/10 bg-navy-card/70 p-5">
-                <h3 className="text-xs font-medium uppercase tracking-[0.08em] text-accent">
-                  {group.title}
-                </h3>
-                <ul className="mt-3 flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <li
-                      key={item.label}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-canvas py-1 pl-1.5 pr-3 text-xs font-medium text-ink/85"
-                    >
-                      <span className="flex h-5 w-5 items-center justify-center text-azure">
-                        <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-4 w-4" : "h-3.5 w-3.5"} />
-                      </span>
-                      {item.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {/* everything else: one panel, the same width as the logo wall, with
+            a row per group (title on the left, pills on the right) so there's
+            no dead space and it reads top to bottom like a spec sheet */}
+        <Reveal>
+          <div className="mt-3 overflow-hidden rounded-panel border border-canvas/10 bg-navy-card/70">
+            <ul className="divide-y divide-canvas/10">
+              {capabilities.groups.map((group) => (
+                <li
+                  key={group.title}
+                  className="grid gap-3 px-5 py-4 sm:grid-cols-[11rem_1fr] sm:items-center sm:gap-6 sm:px-6"
+                >
+                  <h3 className="text-xs font-medium uppercase tracking-[0.08em] text-sun">
+                    {group.title}
+                  </h3>
+                  <ul className="flex flex-wrap gap-1.5">
+                    {group.items.map((item) => (
+                      <li
+                        key={item.label}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-canvas py-1 pl-1.5 pr-3 text-xs font-medium text-ink/85"
+                      >
+                        <span className="flex h-5 w-5 items-center justify-center text-azure">
+                          <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-4 w-4" : "h-3.5 w-3.5"} />
+                        </span>
+                        {item.label}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </Shell>
     </Section>
   );

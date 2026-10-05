@@ -154,20 +154,20 @@ export const spotlight = {
   cards: [
     {
       label: "Team",
-      title: "Working across a bigger company",
-      body: "I'm on a web team of about 10 inside a company of around 100, so I work across teams a lot. Most days that's alongside project managers, and I've worked with clients directly when a project needed it.",
+      title: "Small team, bigger company",
+      body: "I'm part of a tight web team of about 10, inside a company of around 100. So I'm just as comfortable heads down with my own team as I am working across departments with project managers and everyone else who touches a project.",
       icon: "team",
     },
     {
-      label: "Mentoring",
-      title: "Helping a junior designer grow",
-      body: "I've managed a junior designer for over a year now, and he's since earned a promotion of his own. Watching that happen has been one of my favorite parts of the job.",
+      label: "Growth",
+      title: "Growing, and helping others grow",
+      body: "I'm always pushing to get better as a designer, whether that's a new tool or a better way to work. I've also managed a junior designer for over a year, and helping him grow into a promotion of his own has been one of the best parts of the job.",
       icon: "mentor",
     },
     {
       label: "Platforms",
-      title: "Comfortable on any builder",
-      body: "WordPress and Elementor are home base, front end and back end. I'm just as comfortable in Webflow, Wix, or whatever else a project runs on, and I use Claude to move faster.",
+      title: "Good on any builder",
+      body: "WordPress, Elementor, Webflow, Wix, you name it. Whatever a project runs on, I'm comfortable in it, front end and back end, and I pick up new ones fast.",
       icon: "builder",
     },
   ],

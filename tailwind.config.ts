@@ -18,7 +18,9 @@ const config: Config = {
         navy: "#0B2A4A",
         "navy-card": "#173A60",
         "navy-dark": "#071D35",
-        accent: "#8FD0FF", // bright sky blue: buttons, highlights, stat band
+        accent: "#8FD0FF", // bright sky blue: highlights and numbers on dark
+        royal: "#2563EB", // deep, saturated blue for every call to action
+        "royal-dark": "#1D4ED8",
         azure: "#3D8BFD", // deeper blue for line work on light backgrounds
         mist: "#E6EFFA", // pale blue wash for light sections
         grid: "#D5DCE6",

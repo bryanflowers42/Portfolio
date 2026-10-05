@@ -10,7 +10,7 @@ export default function Faq() {
           <div className="lg:col-span-5">
             <h2 className="text-display-sm lg:text-[42px]">{faq.heading}</h2>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href={`mailto:${profile.email}`} variant="accent">
+              <Button href={`mailto:${profile.email}`} variant="blue">
                 Ask me directly
               </Button>
             </div>

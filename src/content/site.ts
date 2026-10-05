@@ -70,9 +70,9 @@ export const seo = {
 /* ---------- navigation ---------- */
 
 export const nav: NavLink[] = [
+  { label: "About", href: "/#about" },
   { label: "Work", href: "/#work" },
   { label: "Process", href: "/#process" },
-  { label: "About", href: "/#about" },
   { label: "Experience", href: "/#experience" },
 ];
 
@@ -82,11 +82,8 @@ export const nav: NavLink[] = [
 export const hero = {
   chip: "Senior Web Designer",
   heading: "I design and build websites, *start to finish.*",
-  body: "I love being creative, making new things, and figuring out the tricky parts, on whatever platform a project calls for.",
   primaryCta: { label: "See the work", href: "/#work" },
   secondaryCta: { label: "Résumé", href: "/Bryan_Flowers_Resume.pdf" },
-  image: null as string | null, // optional visual under the hero text
-  imageAlt: "",
 };
 
 /* ---------- client logo marquee (not on the home page right now) ---------- */
@@ -151,9 +148,9 @@ export const process = {
 /* ---------- about ---------- */
 
 export const spotlight = {
-  eyebrow: "About",
+  eyebrow: "Hi, I'm Bryan",
   heading: "I love *making new things* and solving problems.",
-  body: "Web design checks every box for me. I get to be creative, build something that didn't exist yesterday, and solve a bunch of little problems along the way. I'm always looking for the next thing to learn, and every project seems to have one.",
+  body: "I'm a senior web designer at Youtech with over three years in web design, and it checks every box for me. I get to be creative, build something that didn't exist yesterday, and solve a bunch of little problems along the way. I'm always looking for the next thing to learn, and every project seems to have one.",
   cards: [
     {
       label: "Team",
@@ -384,9 +381,9 @@ export const footer = {
     {
       title: "Site",
       links: [
+        { label: "About", href: "/#about" },
         { label: "Work", href: "/#work" },
         { label: "Process", href: "/#process" },
-        { label: "About", href: "/#about" },
         { label: "Experience", href: "/#experience" },
         { label: "Contact", href: "/#contact" },
       ],

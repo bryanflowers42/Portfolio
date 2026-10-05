@@ -37,20 +37,23 @@ export default function Capabilities() {
           ))}
         </ul>
 
-        {/* everything else, grouped, each skill with its own icon */}
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* everything else, grouped: compact rows of white pills, each with
+            its icon or logo, so the whole list reads at a glance */}
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.groups.map((group, i) => (
             <Reveal key={group.title} delay={(i % 3) * 80}>
-              <div className="h-full rounded-panel border border-canvas/10 bg-navy-card/70 p-6">
-                <h3 className="text-sm font-medium uppercase tracking-[0.06em] text-accent">
+              <div className="h-full rounded-panel border border-canvas/10 bg-navy-card/70 p-5">
+                <h3 className="text-xs font-medium uppercase tracking-[0.08em] text-accent">
                   {group.title}
                 </h3>
-                <ul className="mt-5 space-y-3">
+                <ul className="mt-3 flex flex-wrap gap-1.5">
                   {group.items.map((item) => (
-                    <li key={item.label} className="flex items-center gap-3 text-sm text-canvas/85">
-                      {/* every icon sits on the same white tile, logo or not */}
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-canvas text-azure">
-                        <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-5 w-5" : "h-4 w-4"} />
+                    <li
+                      key={item.label}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-canvas py-1 pl-1.5 pr-3 text-xs font-medium text-ink/85"
+                    >
+                      <span className="flex h-5 w-5 items-center justify-center text-azure">
+                        <SkillIcon icon={item.icon} className={isLogo(item.icon) ? "h-4 w-4" : "h-3.5 w-3.5"} />
                       </span>
                       {item.label}
                     </li>

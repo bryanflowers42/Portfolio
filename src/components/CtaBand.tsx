@@ -20,7 +20,7 @@ export default function CtaBand() {
             <h2 className="text-balance pb-1 text-display-sm leading-[1.15] lg:text-[44px]">{cta.heading}</h2>
             <p className="mt-5 text-base text-canvas/70">{cta.body}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href={cta.primary.href} variant="accent" className="w-full sm:w-auto">
+              <Button href={cta.primary.href} variant="blue" className="w-full sm:w-auto">
                 {cta.primary.label}
               </Button>
               <Button

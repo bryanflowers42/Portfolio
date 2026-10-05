@@ -100,28 +100,33 @@ export default function Experience() {
           {/* Michigan blue wash keeps the text readable over the photo */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#00274C]/95 via-[#00274C]/85 to-[#00274C]/60" aria-hidden />
 
-          <div className="relative p-6 sm:p-10 lg:p-12">
-            <div className="flex items-center gap-4">
+          <div className="relative grid gap-10 p-6 sm:p-10 lg:grid-cols-12 lg:items-center lg:gap-12 lg:p-14">
+            {/* left: the school */}
+            <div className="flex items-center gap-5 lg:col-span-5 lg:flex-col lg:items-start lg:gap-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={education.logo}
                 alt="University of Michigan Block M"
-                className="h-12 w-auto sm:h-14"
+                className="h-14 w-auto sm:h-16 lg:h-28"
               />
               <div>
-                <p className="font-display text-xl leading-tight sm:text-2xl">{education.school}</p>
-                <p className="text-sm text-canvas/70">{education.campus}</p>
+                <p className="font-display text-2xl leading-tight sm:text-3xl lg:text-4xl">
+                  {education.school}
+                </p>
+                <p className="mt-1 text-sm text-canvas/70 lg:text-base">{education.campus}</p>
               </div>
             </div>
 
-            <h3 className="mt-8 max-w-2xl font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
+            {/* right: what I studied */}
+            <div className="lg:col-span-7">
+            <h3 className="font-display text-2xl leading-tight tracking-[-0.01em] sm:text-3xl">
               <Marked text={education.heading} invert />
             </h3>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className="mt-6 grid gap-4">
               {education.schools.map((s, i) => (
                 <Reveal key={s.degree} delay={i * 90} className="h-full">
-                  <div className="h-full rounded-panel border border-canvas/15 bg-canvas/10 p-6 backdrop-blur-sm">
+                  <div className="h-full rounded-panel border border-canvas/15 bg-canvas/10 p-5 backdrop-blur-sm sm:p-6">
                     <p className="inline-flex rounded-full bg-[#FFCB05] px-3 py-1 text-xs font-medium text-[#00274C]">
                       {s.dates}
                     </p>
@@ -134,6 +139,7 @@ export default function Experience() {
                   </div>
                 </Reveal>
               ))}
+            </div>
             </div>
           </div>
 

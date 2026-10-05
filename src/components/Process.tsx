@@ -14,7 +14,7 @@ export default function Process() {
           strokeWidth={4}
         />
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <SectionHeading index="02" eyebrow={process.eyebrow}>
+          <SectionHeading index="03" eyebrow={process.eyebrow}>
             {process.heading}
           </SectionHeading>
           <p className="max-w-xs text-sm leading-relaxed text-ink/60">

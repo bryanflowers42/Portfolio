@@ -4,7 +4,6 @@ import { work } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Media from "./Media";
 import Reveal from "./Reveal";
-import { Squiggle } from "./Decor";
 
 /* Projects lead the page: big screenshots, very little text. */
 export default function WorkGrid() {
@@ -14,12 +13,9 @@ export default function WorkGrid() {
     <Section id="work" tone="surface" className="bg-[linear-gradient(180deg,#E6EFFA_0%,#F0F4F9_520px)]">
       <Shell>
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <SectionHeading index="01" eyebrow={work.eyebrow}>
-              {work.heading}
-            </SectionHeading>
-            <Squiggle variant="wave" className="mt-3 h-6 w-40 text-azure" strokeWidth={4} />
-          </div>
+          <SectionHeading index="02" eyebrow={work.eyebrow}>
+            {work.heading}
+          </SectionHeading>
           <p className="max-w-xs text-sm leading-relaxed text-ink/50">
             {work.note}
           </p>

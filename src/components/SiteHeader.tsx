@@ -56,7 +56,7 @@ export default function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <a
             href={profile.resumeHref}
-            className="mr-2 text-sm font-medium tracking-[-0.01em] text-azure transition-colors hover:text-navy"
+            className="mr-2 text-sm font-medium tracking-[-0.01em] text-royal transition-colors hover:text-navy"
           >
             Résumé
           </a>
@@ -141,7 +141,7 @@ export default function SiteHeader() {
           ))}
           <a
             href={profile.resumeHref}
-            className="rounded-card px-2 py-3 text-lg font-medium tracking-[-0.01em] text-azure"
+            className="rounded-card px-2 py-3 text-lg font-medium tracking-[-0.01em] text-royal"
           >
             Résumé
           </a>
@@ -166,6 +166,6 @@ export default function SiteHeader() {
 }
 
 /* shared shape and color for the email / phone buttons (always the same blue) */
-const blueBtn = "bg-azure text-white hover:bg-[#2F77E0]";
+const blueBtn = "bg-royal text-white hover:bg-royal-dark";
 const contactBtn =
   "inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3.5 text-sm font-medium tracking-[-0.01em] transition-all duration-300 ease-ruul xl:px-5";

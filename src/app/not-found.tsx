@@ -14,7 +14,7 @@ export default function NotFound() {
             The link may be out of date. The work is all one click away.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href="/" variant="accent">
+            <Button href="/" variant="blue">
               Back home
             </Button>
             <Button href="/#work" variant="outlineLight">

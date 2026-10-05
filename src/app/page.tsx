@@ -15,10 +15,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Spotlight />
       <WorkGrid />
       <Stats />
       <Process />
-      <Spotlight />
       <Experience />
       <Capabilities />
       <Testimonials />

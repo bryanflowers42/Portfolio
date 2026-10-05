@@ -21,14 +21,14 @@ export function Section({
   id?: string;
   children: ReactNode;
   className?: string;
-  tone?: "canvas" | "surface" | "mint" | "forest" | "dark";
+  tone?: "canvas" | "surface" | "mist" | "navy" | "dark";
 }) {
   const tones = {
     canvas: "bg-canvas text-ink",
     surface: "bg-surface text-ink",
-    mint: "bg-mint text-ink",
-    forest: "bg-forest text-canvas",
-    dark: "bg-forest-dark text-canvas",
+    mist: "bg-mist text-ink",
+    navy: "bg-navy text-canvas",
+    dark: "bg-navy-dark text-canvas",
   } as const;
 
   return (
@@ -57,7 +57,7 @@ export function Eyebrow({
       }`}
     >
       {index && (
-        <span className={invert ? "text-lime" : "text-ink/70"}>[{index}]</span>
+        <span className={invert ? "text-accent" : "text-ink/70"}>[{index}]</span>
       )}
       <span>{children}</span>
     </p>

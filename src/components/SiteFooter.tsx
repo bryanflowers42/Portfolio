@@ -6,7 +6,7 @@ export default function SiteFooter() {
   const socials = profile.socials.filter((s) => s.href);
 
   return (
-    <footer className="bg-forest-dark text-canvas">
+    <footer className="bg-navy-dark text-canvas">
       <div className="shell py-14 lg:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -28,7 +28,7 @@ export default function SiteFooter() {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="text-sm text-canvas/70 transition-colors hover:text-lime"
+                      className="text-sm text-canvas/70 transition-colors hover:text-accent"
                     >
                       {l.label}
                     </Link>
@@ -44,7 +44,7 @@ export default function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-canvas/70 transition-colors hover:text-lime"
+                  className="text-canvas/70 transition-colors hover:text-accent"
                 >
                   {profile.email}
                 </a>
@@ -52,17 +52,9 @@ export default function SiteFooter() {
               <li>
                 <a
                   href={`tel:${profile.phoneHref}`}
-                  className="text-canvas/70 transition-colors hover:text-lime"
+                  className="text-canvas/70 transition-colors hover:text-accent"
                 >
                   {profile.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={profile.websiteHref}
-                  className="text-canvas/70 transition-colors hover:text-lime"
-                >
-                  {profile.website}
                 </a>
               </li>
             </ul>
@@ -75,7 +67,7 @@ export default function SiteFooter() {
                       href={s.href as string}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="inline-flex h-9 items-center rounded-full border border-canvas/20 px-4 text-xs text-canvas/70 transition-colors hover:border-lime hover:text-lime"
+                      className="inline-flex h-9 items-center rounded-full border border-canvas/20 px-4 text-xs text-canvas/70 transition-colors hover:border-accent hover:text-accent"
                     >
                       {s.label}
                     </a>
@@ -90,7 +82,6 @@ export default function SiteFooter() {
           <p>
             © {year} {profile.name}. All rights reserved.
           </p>
-          <p>{profile.location}</p>
         </div>
       </div>
     </footer>

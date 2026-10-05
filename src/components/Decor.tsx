@@ -62,8 +62,10 @@ function ribbonPaths(count: number, width: number, height: number) {
     for (let x = 0; x <= width; x += 8) {
       const u = (x / width) * Math.PI * 2;
       const twist = Math.cos(u * 0.9 + 0.6); // pinches the band
-      const wave = Math.sin(u * 1.3 + t * 1.1) * height * 0.22;
-      const y = mid + wave + (t - 0.5) * height * 0.55 * twist;
+      // amplitudes keep every line inside ~70% of the height, so the curves
+      // never touch the frame and get flattened
+      const wave = Math.sin(u * 1.3 + t * 1.1) * height * 0.17;
+      const y = mid + wave + (t - 0.5) * height * 0.38 * twist;
       d += `${x === 0 ? "M" : "L"}${x} ${y.toFixed(1)} `;
     }
     paths.push(d.trim());
@@ -85,7 +87,8 @@ export function FlowLines({
       viewBox="0 0 1200 320"
       preserveAspectRatio="none"
       fill="none"
-      className={`pointer-events-none ${className}`}
+      // flow-mask fades the ribbon out at every edge instead of cutting it
+      className={`flow-mask pointer-events-none overflow-visible ${className}`}
       aria-hidden
     >
       <g className="flow-drift" style={{ opacity }}>

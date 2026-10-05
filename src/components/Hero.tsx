@@ -8,14 +8,14 @@ import { FlowLines } from "./Decor";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-forest text-canvas">
+    <section className="relative overflow-hidden bg-navy text-canvas">
       {/* soft radial glow, as on ruul's hero */}
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-lime/10 blur-[120px]"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]"
         aria-hidden
       />
       <FlowLines
-        className="absolute inset-x-0 bottom-0 h-[220px] w-full text-lime sm:h-[280px]"
+        className="absolute inset-x-0 bottom-0 h-[220px] w-full text-accent sm:h-[280px]"
         opacity={0.3}
       />
       <Shell
@@ -26,7 +26,7 @@ export default function Hero() {
         <Reveal>
           <div className="mx-auto max-w-[860px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-canvas/20 bg-canvas/[0.06] px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-lime" aria-hidden />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
               {hero.chip}
             </span>
 
@@ -39,7 +39,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href={hero.primaryCta.href} variant="lime" className="w-full sm:w-auto">
+              <Button href={hero.primaryCta.href} variant="accent" className="w-full sm:w-auto">
                 {hero.primaryCta.label}
               </Button>
               <Button

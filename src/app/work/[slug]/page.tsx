@@ -46,15 +46,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* header */}
-      <section className="relative overflow-hidden bg-forest pb-0 pt-14 text-canvas sm:pt-20">
+      <section className="relative overflow-hidden bg-navy pb-0 pt-14 text-canvas sm:pt-20">
         <FlowLines
-          className="absolute inset-x-0 top-6 h-[260px] w-full text-lime"
+          className="absolute inset-x-0 top-6 h-[260px] w-full text-accent"
           opacity={0.22}
         />
         <Shell className="relative">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-sm text-canvas/55 transition-colors hover:text-lime"
+            className="inline-flex items-center gap-2 text-sm text-canvas/55 transition-colors hover:text-accent"
           >
             <span aria-hidden>←</span> All work
           </Link>
@@ -85,7 +85,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="text-lime underline-offset-4 hover:underline"
+                      className="text-accent underline-offset-4 hover:underline"
                     >
                       Visit site ↗
                     </a>
@@ -132,7 +132,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <Eyebrow index="01">The brief</Eyebrow>
-              <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-leaf lg:block" strokeWidth={4} />
+              <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-azure lg:block" strokeWidth={4} />
             </div>
             <p className="font-display text-2xl leading-snug tracking-[-0.01em] sm:text-[28px] lg:col-span-8">
               {project.overview}
@@ -142,7 +142,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* process, kickoff to launch */}
-      <section className="bg-mint pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24">
+      <section className="bg-mist pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24">
         <Shell>
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -150,7 +150,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <h2 className="mt-5 font-display text-3xl tracking-[-0.01em] sm:text-4xl">
                 Kickoff to launch
               </h2>
-              <Squiggle variant="arrow" className="mt-6 hidden h-24 w-32 text-leaf lg:block" strokeWidth={4} />
+              <Squiggle variant="arrow" className="mt-6 hidden h-24 w-32 text-azure lg:block" strokeWidth={4} />
             </div>
 
             <ol className="relative lg:col-span-8">
@@ -165,7 +165,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       otherwise make it the containing block and shift the
                       marker off the rail */}
                   <span
-                    className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-xs text-canvas ring-4 ring-mint"
+                    className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-navy text-xs text-canvas ring-4 ring-mist"
                     aria-hidden
                   >
                     {i + 1}
@@ -269,7 +269,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               Questions about this project?{" "}
               <a
                 href={`mailto:${profile.email}`}
-                className="text-forest underline underline-offset-4"
+                className="text-navy underline underline-offset-4"
               >
                 Email me
               </a>

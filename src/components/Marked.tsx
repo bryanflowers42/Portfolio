@@ -1,5 +1,5 @@
-/* Renders copy where *words in asterisks* get the lime highlighter.
-   On dark backgrounds the highlight becomes lime text instead. */
+/* Renders copy where *words in asterisks* get the accent highlighter.
+   On dark backgrounds the highlight becomes accent colored text instead. */
 export default function Marked({
   text,
   invert = false,
@@ -12,7 +12,7 @@ export default function Marked({
     <>
       {parts.map((part, i) =>
         part.startsWith("*") && part.endsWith("*") ? (
-          <span key={i} className={invert ? "text-lime" : "marker"}>
+          <span key={i} className={invert ? "text-accent" : "marker"}>
             {part.slice(1, -1)}
           </span>
         ) : (

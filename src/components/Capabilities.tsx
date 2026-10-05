@@ -6,9 +6,9 @@ import { FlowLines } from "./Decor";
 
 export default function Capabilities() {
   return (
-    <Section id="skills" tone="forest" className="relative overflow-hidden">
+    <Section id="skills" tone="navy" className="relative overflow-hidden">
       <FlowLines
-        className="absolute inset-x-0 top-10 h-[300px] w-full text-lime"
+        className="absolute inset-x-0 top-10 h-[300px] w-full text-accent"
         opacity={0.14}
       />
       <Shell className="relative">
@@ -41,14 +41,14 @@ export default function Capabilities() {
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.groups.map((group, i) => (
             <Reveal key={group.title} delay={(i % 3) * 80}>
-              <div className="h-full rounded-panel border border-canvas/10 bg-forest-card/70 p-6">
-                <h3 className="text-sm font-medium uppercase tracking-[0.06em] text-lime">
+              <div className="h-full rounded-panel border border-canvas/10 bg-navy-card/70 p-6">
+                <h3 className="text-sm font-medium uppercase tracking-[0.06em] text-accent">
                   {group.title}
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {group.items.map((item) => (
                     <li key={item.label} className="flex items-center gap-3 text-sm text-canvas/85">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-canvas/[0.08] text-lime">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-canvas/[0.08] text-accent">
                         <SkillIcon icon={item.icon} className="h-4 w-4" />
                       </span>
                       {item.label}

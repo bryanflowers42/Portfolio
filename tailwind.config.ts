@@ -10,17 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#1A2018",
-        canvas: "#FCFCF7",
-        "canvas-muted": "#EFEFE9",
-        surface: "#F1F4F0",
-        forest: "#003E39",
-        "forest-card": "#25352F",
-        "forest-dark": "#002B28",
-        lime: "#D3F969",
-        leaf: "#8CC63F", // lime's deeper sibling, for line work on light backgrounds
-        mint: "#EAF3DF", // pale green wash for light sections
-        grid: "#D8D9D3",
+        // Blue palette. `navy` is the brand dark, `accent` the bright pop.
+        ink: "#121A26",
+        canvas: "#FAFBFD",
+        "canvas-muted": "#EDF1F6",
+        surface: "#F0F4F9",
+        navy: "#0B2A4A",
+        "navy-card": "#173A60",
+        "navy-dark": "#071D35",
+        accent: "#8FD0FF", // bright sky blue: buttons, highlights, stat band
+        azure: "#3D8BFD", // deeper blue for line work on light backgrounds
+        mist: "#E6EFFA", // pale blue wash for light sections
+        grid: "#D5DCE6",
         danger: "#EA384C",
         info: "#3898EC",
         success: "#389154",

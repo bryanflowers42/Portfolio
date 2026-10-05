@@ -4,13 +4,13 @@ import Button from "./Button";
 
 export default function Faq() {
   return (
-    <div className="bg-forest-dark py-16 text-canvas sm:py-20 lg:py-24">
+    <div className="bg-navy-dark py-16 text-canvas sm:py-20 lg:py-24">
       <Shell>
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <h2 className="text-display-sm lg:text-[42px]">{faq.heading}</h2>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href={`mailto:${profile.email}`} variant="lime">
+              <Button href={`mailto:${profile.email}`} variant="accent">
                 Ask me directly
               </Button>
             </div>
@@ -26,7 +26,7 @@ export default function Faq() {
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left text-base tracking-[-0.01em] text-canvas marker:hidden">
                   <span>{item.q}</span>
                   <span
-                    className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-canvas/25 transition-colors group-open:border-lime group-open:bg-lime group-open:text-ink"
+                    className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-canvas/25 transition-colors group-open:border-accent group-open:bg-accent group-open:text-ink"
                     aria-hidden
                   >
                     <span className="absolute h-[1.5px] w-3 bg-current" />

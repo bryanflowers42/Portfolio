@@ -28,11 +28,11 @@
   }
 
   ::selection {
-    @apply bg-lime text-ink;
+    @apply bg-accent text-ink;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-lime ring-offset-2 ring-offset-canvas;
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas;
   }
 }
 
@@ -44,17 +44,17 @@
 
   /* Faint grid used behind image placeholders. */
   .bg-grid-paper {
-    background-image: linear-gradient(#d8d9d3 1px, transparent 1px),
-      linear-gradient(90deg, #d8d9d3 1px, transparent 1px);
+    background-image: linear-gradient(#D5DCE6 1px, transparent 1px),
+      linear-gradient(90deg, #D5DCE6 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  /* Lime highlighter swipe behind a word or two in a heading */
+  /* Accent highlighter swipe behind a word or two in a heading */
   .marker {
     background-image: linear-gradient(
       transparent 58%,
-      #d3f969 58%,
-      #d3f969 92%,
+      #8FD0FF 58%,
+      #8FD0FF 92%,
       transparent 92%
     );
     padding: 0 0.08em;
@@ -133,14 +133,37 @@
   animation: squiggle-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) both 0.3s;
 }
 
+/* vertical breathing only: no sideways travel, so the ends never show a gap */
 @keyframes flow-drift {
   0%,
   100% {
     transform: translate3d(0, 0, 0) scaleY(1);
   }
   50% {
-    transform: translate3d(-2%, 3%, 0) scaleY(0.88);
+    transform: translate3d(0, 2%, 0) scaleY(0.9);
   }
+}
+
+/* soft fade on all four sides of the line ribbon */
+.flow-mask {
+  -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 14%,
+      #000 86%,
+      transparent
+    ),
+    linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 14%,
+      #000 86%,
+      transparent
+    ),
+    linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  mask-composite: intersect;
 }
 
 .flow-drift {

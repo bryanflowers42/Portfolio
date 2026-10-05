@@ -8,7 +8,7 @@ export default function Spotlight() {
   return (
     <Section id="about" tone="dark" className="relative overflow-hidden">
       <FlowLines
-        className="absolute -right-40 top-0 hidden h-[340px] w-[900px] text-lime lg:block"
+        className="absolute inset-x-0 top-0 hidden h-[360px] w-full text-accent lg:block"
         opacity={0.18}
       />
       <Shell className="relative">
@@ -24,12 +24,12 @@ export default function Spotlight() {
         <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-3 lg:gap-5">
           {spotlight.cards.map((card, i) => (
             <Reveal key={card.title} delay={i * 100}>
-              <article className="relative flex h-full flex-col overflow-hidden rounded-panel border border-canvas/12 bg-forest-card/70 p-7">
+              <article className="relative flex h-full flex-col overflow-hidden rounded-panel border border-canvas/12 bg-navy-card/70 p-7">
                 <span
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-lime/10 blur-3xl"
+                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-3xl"
                   aria-hidden
                 />
-                <p className="relative text-eyebrow uppercase text-lime">
+                <p className="relative text-eyebrow uppercase text-accent">
                   {card.label}
                 </p>
                 <h3 className="relative mt-4 font-display text-2xl leading-snug tracking-[-0.01em] text-canvas">

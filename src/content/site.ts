@@ -4,7 +4,7 @@
    Everything you see on the site lives here. You should almost never need to
    open a component file to change wording, add a job, or add a project.
 
-   Headings: wrap a word or two in *asterisks* to give it the lime
+   Headings: wrap a word or two in *asterisks* to give it the accent
    highlighter, e.g.  heading: "How a site *gets made*"
 
    Images: leave `image` as null to hide it. When you have the real file, drop
@@ -49,7 +49,7 @@ export const profile = {
   title: "Senior Web Designer",
   location: "Michigan, USA",
   email: "bryanflowers42@gmail.com",
-  phone: "810.986.5599",
+  phone: "(810) 986-5599",
   phoneHref: "+18109865599",
   website: "bryanrflowers.com",
   websiteHref: "https://bryanrflowers.com",
@@ -57,7 +57,7 @@ export const profile = {
   // Set to null to hide a social link entirely.
   socials: [
     { label: "LinkedIn", href: null as string | null },
-    { label: "GitHub", href: "https://github.com/bryanflowers42" as string | null },
+    { label: "GitHub", href: null as string | null },
     { label: "Dribbble", href: null as string | null },
   ],
 };
@@ -86,7 +86,7 @@ export const navCta = { label: "Get in touch", href: "/#contact" };
 export const hero = {
   chip: "Senior Web Designer at Youtech",
   heading: "I design and build websites, *start to finish.*",
-  body: "I've been designing for the web for over two years, and I still love it. I get to be creative, make new things, and figure out the tricky parts, whether that's in WordPress, Elementor, Webflow, Wix, or whatever the project runs on.",
+  body: "I love being creative, making new things, and figuring out the tricky parts, on whatever platform a project calls for.",
   primaryCta: { label: "See the work", href: "/#work" },
   secondaryCta: { label: "Résumé", href: "/Bryan_Flowers_Resume.pdf" },
   image: null as string | null, // optional visual under the hero text
@@ -267,7 +267,7 @@ export const capabilities = {
 export const stats: Stat[] = [
   { value: "30+", label: "Websites designed and launched" },
   { value: "200+", label: "Pages on my biggest build" },
-  { value: "2+", label: "Years designing for the web" },
+  { value: "3+", label: "Years designing for the web" },
   { value: "5", label: "Designers led on one build" },
 ];
 
@@ -375,11 +375,11 @@ export const cta = {
   heading: "Got a project in mind?",
   body: "I'm open to senior web design and UX roles, plus the occasional freelance project. I'd love to hear what you're working on.",
   primary: { label: "Email me", href: "mailto:bryanflowers42@gmail.com" },
-  secondary: { label: "Call me: 810.986.5599", href: "tel:+18109865599" },
+  secondary: { label: "Call me: (810) 986-5599", href: "tel:+18109865599" },
 };
 
 export const footer = {
-  blurb: "Senior web designer. I design it, build it, and see it through to launch.",
+  blurb: "Senior Web Designer",
   columns: [
     {
       title: "Site",

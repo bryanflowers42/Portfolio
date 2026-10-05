@@ -24,7 +24,7 @@ export default function Media({
 }) {
   const shellCls =
     tone === "dark"
-      ? "bg-forest-card/60 border-canvas/10"
+      ? "bg-navy-card/60 border-canvas/10"
       : "bg-canvas-muted border-ink/[0.08]";
 
   return (

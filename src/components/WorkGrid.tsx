@@ -11,14 +11,14 @@ export default function WorkGrid() {
   const items = featuredProjects();
 
   return (
-    <Section id="work" tone="surface" className="bg-[linear-gradient(180deg,#EAF3DF_0%,#F1F4F0_520px)]">
+    <Section id="work" tone="surface" className="bg-[linear-gradient(180deg,#E6EFFA_0%,#F0F4F9_520px)]">
       <Shell>
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <SectionHeading index="01" eyebrow={work.eyebrow}>
               {work.heading}
             </SectionHeading>
-            <Squiggle variant="wave" className="mt-3 h-6 w-40 text-leaf" strokeWidth={4} />
+            <Squiggle variant="wave" className="mt-3 h-6 w-40 text-azure" strokeWidth={4} />
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-ink/50">
             {work.note}
@@ -29,7 +29,7 @@ export default function WorkGrid() {
           {items.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 90}>
               <Link href={`/work/${p.slug}`} className="group block">
-                <div className="overflow-hidden rounded-panel shadow-[0_24px_48px_-32px_rgba(26,32,24,0.45)]">
+                <div className="overflow-hidden rounded-panel shadow-[0_24px_48px_-32px_rgba(19,26,36,0.45)]">
                   <div className="transition-transform duration-700 ease-ruul group-hover:scale-[1.025]">
                     <Media
                       src={p.cardImage}
@@ -52,7 +52,7 @@ export default function WorkGrid() {
                 <p className="mt-2 max-w-[56ch] text-sm leading-relaxed text-ink/60">
                   {p.summary}
                 </p>
-                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-forest">
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-navy">
                   See the process
                   <span
                     className="transition-transform duration-300 ease-ruul group-hover:translate-x-1"

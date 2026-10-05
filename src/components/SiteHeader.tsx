@@ -33,18 +33,18 @@ export default function SiteHeader() {
       }`}
     >
       {/* contact bar: email and phone always one tap away */}
-      <div className="bg-forest-dark text-canvas/75">
+      <div className="bg-navy-dark text-canvas/75">
         <div className="shell flex h-9 items-center justify-center gap-5 text-xs sm:justify-end sm:gap-6">
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-lime"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             <Mail className="h-3.5 w-3.5" aria-hidden />
             {profile.email}
           </a>
           <a
             href={`tel:${profile.phoneHref}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-lime"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             <Phone className="h-3.5 w-3.5" aria-hidden />
             {profile.phone}

@@ -25,8 +25,7 @@ export default function Hero() {
       <Shell className="relative py-24 sm:py-32 lg:py-40">
         <Reveal>
           <div className="mx-auto max-w-[860px] text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-canvas/25 bg-navy/60 px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/85 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-sun" aria-hidden />
+            <span className="inline-flex items-center rounded-full border border-canvas/25 bg-navy/60 px-4 py-1.5 text-xs tracking-[-0.01em] text-canvas/85 backdrop-blur">
               {hero.chip}
             </span>
 

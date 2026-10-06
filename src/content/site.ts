@@ -5,7 +5,7 @@
    open a component file to change wording, add a job, or add a project.
 
    Headings: wrap a word or two in *asterisks* to give it the accent
-   highlighter, e.g.  heading: "How a site *gets made*"
+   highlighter, e.g.  heading: "My site building *process*"
 
    Images: leave `image` as null to hide it. When you have the real file, drop
    it in /public/images/ and set the path.
@@ -114,7 +114,7 @@ export const work = {
 
 export const process = {
   eyebrow: "Process",
-  heading: "How a site *gets made*",
+  heading: "My site building *process*",
   intro: "Every project goes through the same five steps, whether it's 10 pages or 200.",
   steps: [
     {
@@ -180,8 +180,8 @@ export const spotlight = {
    in components/SkillIcon.tsx.                                              */
 
 export const capabilities = {
-  eyebrow: "Skills",
-  heading: "The *toolbox*",
+  eyebrow: "The Toolbox",
+  heading: "My *Skills*",
   intro: "If it builds websites, I've probably worked in it. These are the ones I reach for most.",
   tools: [
     { label: "WordPress", icon: "wordpress" },
@@ -328,7 +328,7 @@ export const education = {
   background: "/images/education/burton-tower.jpg",
   backgroundAlt: "Burton Memorial Tower on the University of Michigan campus",
   credit: "Photo: Cbl62, CC BY 3.0",
-  heading: "I studied how people think, then how to *build for them.*",
+  heading: "My *Education*",
   schools: [
     {
       school: "University of Michigan",
@@ -369,8 +369,8 @@ export const faq = {
 /* ---------- closing CTA ---------- */
 
 export const cta = {
-  heading: "Got a project in mind?",
-  body: "I'm open to senior web design and UX roles, plus the occasional freelance project. I'd love to hear what you're working on.",
+  heading: "Always happy to *talk web.*",
+  body: "A new project, a site that needs some love, or just a question about anything web related. Whatever it is, I'd love to hear about it.",
   primary: { label: "Email me", href: "mailto:bryanflowers42@gmail.com" },
   secondary: { label: "Call me: (810) 986-5599", href: "tel:+18109865599" },
 };

@@ -20,7 +20,7 @@ export default function Spotlight() {
       <Shell className="relative">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-12">
           <div className="lg:col-span-6">
-            <SectionHeading index="01" eyebrow={spotlight.eyebrow} size="sm">
+            <SectionHeading eyebrow={spotlight.eyebrow} size="sm">
               {spotlight.heading}
             </SectionHeading>
             <Squiggle variant="wave" className="mt-3 h-6 w-40 text-azure" strokeWidth={4} />

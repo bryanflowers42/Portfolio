@@ -47,7 +47,7 @@ export default function Experience() {
     <Section id="experience" tone="canvas">
       <Shell>
         <div className="relative">
-          <SectionHeading index="04" eyebrow={experience.eyebrow}>
+          <SectionHeading eyebrow={experience.eyebrow}>
             {experience.heading}
           </SectionHeading>
           <Squiggle

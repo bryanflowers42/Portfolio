@@ -13,7 +13,7 @@ export default function WorkGrid() {
     <Section id="work" tone="surface" className="bg-[linear-gradient(180deg,#E6EFFA_0%,#F0F4F9_520px)]">
       <Shell>
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <SectionHeading index="02" eyebrow={work.eyebrow}>
+          <SectionHeading eyebrow={work.eyebrow}>
             {work.heading}
           </SectionHeading>
           <p className="max-w-xs text-sm leading-relaxed text-ink/50">

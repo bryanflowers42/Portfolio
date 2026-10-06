@@ -2,6 +2,7 @@ import { cta } from "@/content/site";
 import { Shell } from "./Shell";
 import Button from "./Button";
 import { FlowLines } from "./Decor";
+import Marked from "./Marked";
 
 export default function CtaBand() {
   return (
@@ -17,7 +18,7 @@ export default function CtaBand() {
             opacity={0.22}
           />
           <div className="relative mx-auto max-w-[620px]">
-            <h2 className="text-balance pb-1 text-display-sm leading-[1.15] lg:text-[44px]">{cta.heading}</h2>
+            <h2 className="text-balance pb-1 text-display-sm leading-[1.15] lg:text-[44px]"><Marked text={cta.heading} invert /></h2>
             <p className="mt-5 text-base text-canvas/70">{cta.body}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button href={cta.primary.href} variant="blue" className="w-full sm:w-auto">

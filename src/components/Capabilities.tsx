@@ -13,7 +13,7 @@ export default function Capabilities() {
       />
       <Shell className="relative">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <SectionHeading index="05" eyebrow={capabilities.eyebrow} invert>
+          <SectionHeading eyebrow={capabilities.eyebrow} invert>
             {capabilities.heading}
           </SectionHeading>
           <p className="max-w-xs text-sm leading-relaxed text-canvas/65">

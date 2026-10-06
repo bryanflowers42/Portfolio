@@ -131,7 +131,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <Shell>
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <Eyebrow index="01">The brief</Eyebrow>
+              <Eyebrow>The brief</Eyebrow>
               <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-azure lg:block" strokeWidth={4} />
             </div>
             <p className="font-display text-xl leading-snug tracking-[-0.01em] sm:text-2xl lg:col-span-8 lg:text-[28px]">
@@ -146,7 +146,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <Shell>
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <Eyebrow index="02">Process</Eyebrow>
+              <Eyebrow>Process</Eyebrow>
               <h2 className="mt-5 font-display text-3xl tracking-[-0.01em] sm:text-4xl">
                 Kickoff to launch
               </h2>
@@ -203,7 +203,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       {gallery.length > 0 && (
         <section className="bg-surface py-16 sm:py-20 lg:py-24">
           <Shell>
-            <Eyebrow index="03">The result</Eyebrow>
+            <Eyebrow>The result</Eyebrow>
             {/* two-column masonry: each screenshot keeps its own height */}
             <div className="mt-10 gap-6 sm:columns-2">
               {gallery.map((g, i) => (

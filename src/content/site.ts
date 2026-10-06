@@ -81,7 +81,7 @@ export const nav: NavLink[] = [
 
 export const hero = {
   chip: "UX/UI Designer",
-  heading: "I design for real people, *start to finish.*",
+  heading: "I design and build websites, *start to finish.*",
   primaryCta: { label: "See the work", href: "/#work" },
   secondaryCta: { label: "Résumé", href: "/Bryan_Flowers_Resume.pdf" },
 };
@@ -104,7 +104,7 @@ export const logos = {
 
 export const work = {
   eyebrow: "Selected work",
-  heading: "Some things I've built",
+  heading: "Some things *I've built*",
   note: "Click into any project to see how it came together, from the first plan to launch day.",
   disclaimer:
     "Some of these sites are now looked after by the client or another team, so they may have changed since launch.",
@@ -114,7 +114,7 @@ export const work = {
 
 export const process = {
   eyebrow: "Process",
-  heading: "My site building process",
+  heading: "My site building *process*",
   intro: "It always starts with the people who'll use the site, whether it's 10 pages or 200.",
   steps: [
     {
@@ -150,7 +150,7 @@ export const process = {
 export const spotlight = {
   eyebrow: "Hi, I'm Bryan",
   heading: "I love making new things and solving problems.",
-  body: "I'm a UX/UI designer, and right now a senior web designer at Youtech, with over three years designing for the web. I studied cognitive science and then user centered development at the University of Michigan, so I like to start with the people who'll actually use the thing. From there it's the fun part: being creative, building something that didn't exist yesterday, and solving a bunch of little problems along the way. I'm always looking to create memorable experiences, for myself and the people around me.",
+  body: "I'm a senior web designer at Youtech with over three years in the field, and my roots are in UX. I studied cognitive science and user centered development at the University of Michigan, so I always start with the people who'll be using the site. Then comes the part I love: getting creative, making something new, and working through the problems along the way. I'm always looking to create memorable experiences for myself and the people around me.",
   cards: [
     {
       label: "Team",
@@ -181,7 +181,7 @@ export const spotlight = {
 
 export const capabilities = {
   eyebrow: "The Toolbox",
-  heading: "My Skills",
+  heading: "My *Skills*",
   intro: "If it builds websites, I've probably worked in it. These are the ones I reach for most.",
   tools: [
     { label: "WordPress", icon: "wordpress" },
@@ -271,7 +271,7 @@ export const stats: Stat[] = [
 
 export const experience = {
   eyebrow: "Experience",
-  heading: "Where I've worked",
+  heading: "Where *I've worked*",
   jobs: [
     {
       role: "Senior Web Designer",

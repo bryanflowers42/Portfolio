@@ -2,15 +2,10 @@ import { capabilities } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Reveal from "./Reveal";
 import SkillIcon, { isLogo } from "./SkillIcon";
-import { FlowLines } from "./Decor";
 
 export default function Capabilities() {
   return (
     <Section id="skills" tone="navy" className="relative overflow-hidden">
-      <FlowLines
-        className="absolute inset-x-0 top-10 h-[300px] w-full text-accent"
-        opacity={0.14}
-      />
       <Shell className="relative">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <SectionHeading eyebrow={capabilities.eyebrow} invert>

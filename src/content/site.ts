@@ -5,7 +5,7 @@
    open a component file to change wording, add a job, or add a project.
 
    Headings: wrap a word or two in *asterisks* to give it the accent
-   highlighter, e.g.  heading: "My site building *process*"
+   highlighter, e.g.  heading: "Always happy to *talk web.*"
 
    Images: leave `image` as null to hide it. When you have the real file, drop
    it in /public/images/ and set the path.
@@ -60,9 +60,9 @@ export const profile = {
 };
 
 export const seo = {
-  title: "Bryan Flowers, Senior Web Designer",
+  title: "Bryan Flowers, UX/UI Designer",
   description:
-    "I'm Bryan, a senior web designer. I design and build websites start to finish, mostly in WordPress and Elementor, and I'm comfortable on just about any platform.",
+    "I'm Bryan, a UX/UI designer with a master's in user centered development from the University of Michigan. I design websites around the people using them, from research to launch.",
   url: "https://bryanrflowers.com",
   ogImage: "/images/og-default.jpg", // 1200x630
 };
@@ -80,8 +80,8 @@ export const nav: NavLink[] = [
 /* ---------- hero ---------- */
 
 export const hero = {
-  chip: "Senior Web Designer",
-  heading: "I design and build websites, *start to finish.*",
+  chip: "UX/UI Designer",
+  heading: "I design for real people, *start to finish.*",
   primaryCta: { label: "See the work", href: "/#work" },
   secondaryCta: { label: "Résumé", href: "/Bryan_Flowers_Resume.pdf" },
 };
@@ -104,7 +104,7 @@ export const logos = {
 
 export const work = {
   eyebrow: "Selected work",
-  heading: "Some things *I've built*",
+  heading: "Some things I've built",
   note: "Click into any project to see how it came together, from the first plan to launch day.",
   disclaimer:
     "Some of these sites are now looked after by the client or another team, so they may have changed since launch.",
@@ -114,18 +114,18 @@ export const work = {
 
 export const process = {
   eyebrow: "Process",
-  heading: "My site building *process*",
-  intro: "Every project goes through the same five steps, whether it's 10 pages or 200.",
+  heading: "My site building process",
+  intro: "It always starts with the people who'll use the site, whether it's 10 pages or 200.",
   steps: [
     {
       number: "01",
-      title: "Discover",
-      body: "I start by getting to know the business, who it's for, and who it's up against.",
+      title: "Understand",
+      body: "Who's using this, and what are they trying to get done? I look at the audience, the competition, and what the current site gets wrong.",
     },
     {
       number: "02",
-      title: "Plan",
-      body: "Then comes the sitemap, the page templates, and the content plan, so the build has room to grow.",
+      title: "Structure",
+      body: "Sitemap, page templates, and the path someone takes through the site, all sorted out before any visuals.",
     },
     {
       number: "03",
@@ -135,12 +135,12 @@ export const process = {
     {
       number: "04",
       title: "Build",
-      body: "I build it out in WordPress and Elementor with reusable templates, and keep it fast and accessible the whole way.",
+      body: "I build it in WordPress and Elementor with reusable templates, keeping it fast and accessible for everyone.",
     },
     {
       number: "05",
-      title: "Launch",
-      body: "I test it on every screen, launch it, and keep it fresh afterward with updates and new landing pages.",
+      title: "Test & launch",
+      body: "I test it on every screen size, launch it, and keep improving it afterward based on how people use it.",
     },
   ] as Step[],
 };
@@ -149,8 +149,8 @@ export const process = {
 
 export const spotlight = {
   eyebrow: "Hi, I'm Bryan",
-  heading: "I love *making new things* and solving problems.",
-  body: "I'm a senior web designer at Youtech with over three years in web design, and it checks every box for me. I get to be creative, build something that didn't exist yesterday, and solve a bunch of little problems along the way. I'm always looking for the next thing to learn, and every project seems to have one.",
+  heading: "I love making new things and solving problems.",
+  body: "I'm a UX/UI designer, and right now a senior web designer at Youtech, with over three years designing for the web. I studied cognitive science and then user centered development at the University of Michigan, so I like to start with the people who'll actually use the thing. From there it's the fun part: being creative, building something that didn't exist yesterday, and solving a bunch of little problems along the way. I'm always looking to create memorable experiences, for myself and the people around me.",
   cards: [
     {
       label: "Team",
@@ -181,7 +181,7 @@ export const spotlight = {
 
 export const capabilities = {
   eyebrow: "The Toolbox",
-  heading: "My *Skills*",
+  heading: "My Skills",
   intro: "If it builds websites, I've probably worked in it. These are the ones I reach for most.",
   tools: [
     { label: "WordPress", icon: "wordpress" },
@@ -271,7 +271,7 @@ export const stats: Stat[] = [
 
 export const experience = {
   eyebrow: "Experience",
-  heading: "Where *I've worked*",
+  heading: "Where I've worked",
   jobs: [
     {
       role: "Senior Web Designer",
@@ -328,7 +328,7 @@ export const education = {
   background: "/images/education/burton-tower.jpg",
   backgroundAlt: "Burton Memorial Tower on the University of Michigan campus",
   credit: "Photo: Cbl62, CC BY 3.0",
-  heading: "My *Education*",
+  heading: "My Education",
   schools: [
     {
       school: "University of Michigan",
@@ -376,7 +376,7 @@ export const cta = {
 };
 
 export const footer = {
-  blurb: "Senior Web Designer",
+  blurb: "UX/UI Designer",
   columns: [
     {
       title: "Site",

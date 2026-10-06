@@ -1,5 +1,5 @@
 import { Blocks, Sprout, UsersRound, type LucideIcon } from "lucide-react";
-import { spotlight } from "@/content/site";
+import { profile, spotlight } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Reveal from "./Reveal";
 import { Squiggle } from "./Decor";
@@ -11,26 +11,40 @@ const CARD_ICONS: Record<string, LucideIcon> = {
   builder: Blocks,
 };
 
-/* About comes right after the hero: who I am, why I do this, and three
-   honest snapshots of the day job. Light, so it doesn't stack two dark
-   sections on top of each other. */
+/* About comes right after the hero: a real photo, who I am and why I do
+   this, then three honest snapshots of the day job. */
 export default function Spotlight() {
   return (
     <Section id="about" tone="canvas" className="relative overflow-hidden">
       <Shell className="relative">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-12">
-          <div className="lg:col-span-6">
+        <div className="grid items-center gap-8 md:grid-cols-12 lg:gap-14">
+          <Reveal className="md:col-span-5 lg:col-span-4">
+            <div className="relative mx-auto max-w-[340px] md:max-w-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/bryan.jpg"
+                alt={`${profile.name}, smiling, in a suit and tie`}
+                className="aspect-square w-full rounded-xl2 object-cover shadow-[0_30px_60px_-34px_rgba(11,42,74,0.6)]"
+              />
+              <Squiggle
+                variant="loop"
+                className="absolute -bottom-8 -right-6 h-16 w-40 text-sun"
+                strokeWidth={5}
+              />
+            </div>
+          </Reveal>
+
+          <div className="md:col-span-7 lg:col-span-8">
             <SectionHeading eyebrow={spotlight.eyebrow} size="sm">
               {spotlight.heading}
             </SectionHeading>
-            <Squiggle variant="wave" className="mt-3 h-6 w-40 text-azure" strokeWidth={4} />
+            <p className="mt-5 max-w-[62ch] text-base leading-relaxed text-ink/70">
+              {spotlight.body}
+            </p>
           </div>
-          <p className="text-base leading-relaxed text-ink/70 lg:col-span-6">
-            {spotlight.body}
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-4 lg:mt-14 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-14 grid gap-4 lg:mt-16 lg:grid-cols-3 lg:gap-5">
           {spotlight.cards.map((card, i) => {
             const Icon = CARD_ICONS[card.icon] ?? UsersRound;
             return (

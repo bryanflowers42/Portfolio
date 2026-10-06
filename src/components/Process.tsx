@@ -1,46 +1,37 @@
 import { process } from "@/content/site";
 import { Section, Shell, SectionHeading } from "./Shell";
 import Reveal from "./Reveal";
-import { Squiggle } from "./Decor";
 
-/* Five steps, read left to right on desktop and top to bottom on mobile. */
+/* An editorial list rather than a row of identical cards: heading on the
+   left, the steps reading down the right like notes. */
 export default function Process() {
   return (
-    <Section id="process" tone="mist" className="relative overflow-hidden">
-      <Shell className="relative">
-        <Squiggle
-          variant="arrow"
-          className="absolute -top-6 left-[46%] hidden h-28 w-36 text-azure lg:block"
-          strokeWidth={4}
-        />
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <SectionHeading eyebrow={process.eyebrow}>
-            {process.heading}
-          </SectionHeading>
-          <p className="max-w-xs text-sm leading-relaxed text-ink/60">
-            {process.intro}
-          </p>
-        </div>
+    <Section id="process" tone="mist">
+      <Shell>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <SectionHeading eyebrow={process.eyebrow} size="sm">{process.heading}</SectionHeading>
+              <p className="mt-5 max-w-sm text-base leading-relaxed text-ink/65">
+                {process.intro}
+              </p>
+            </div>
+          </div>
 
-        <ol className="mt-12 grid gap-3 lg:mt-16 sm:grid-cols-2 lg:grid-cols-5">
-          {process.steps.map((step, i) => (
-            <li key={step.number}>
-              <Reveal delay={i * 80} className="h-full">
-                <article className="flex h-full flex-col rounded-panel bg-canvas p-5 shadow-[0_18px_40px_-30px_rgba(11,42,74,0.45)] sm:p-7">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sun font-display text-sm text-navy">
-                    {step.number}
-                  </span>
-                  <h3 className="mt-4 font-display text-2xl tracking-[-0.01em] sm:mt-8 lg:mt-10">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/65">
-                    {step.body}
-                  </p>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+          <ol className="lg:col-span-8">
+            {process.steps.map((step, i) => (
+              <li key={step.number} className="border-t border-ink/10 last:border-b">
+                <Reveal delay={i * 60}>
+                  <div className="grid gap-2 py-7 sm:grid-cols-[4rem_10rem_1fr] sm:items-baseline sm:gap-6">
+                    <span className="font-display text-lg text-royal">{step.number}</span>
+                    <h3 className="font-display text-2xl tracking-[-0.01em]">{step.title}</h3>
+                    <p className="text-base leading-relaxed text-ink/70">{step.body}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Shell>
     </Section>
   );

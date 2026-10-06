@@ -7,7 +7,8 @@ import { Shell, Eyebrow } from "@/components/Shell";
 import Media from "@/components/Media";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
-import { Squiggle, FlowLines } from "@/components/Decor";
+import { Squiggle } from "@/components/Decor";
+import { Check, Target, UsersRound } from "lucide-react";
 
 /* Every project in src/content/projects.ts gets a page automatically. */
 export function generateStaticParams() {
@@ -47,10 +48,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <>
       {/* header */}
       <section className="relative overflow-hidden bg-navy pb-0 pt-14 text-canvas sm:pt-20">
-        <FlowLines
-          className="absolute inset-x-0 top-6 h-[260px] w-full text-accent"
-          opacity={0.22}
-        />
         <Shell className="relative">
           <Link
             href="/#work"
@@ -132,12 +129,48 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <Eyebrow>The brief</Eyebrow>
-              <Squiggle variant="loop" className="mt-8 hidden h-16 w-44 text-azure lg:block" strokeWidth={4} />
             </div>
             <p className="font-display text-xl leading-snug tracking-[-0.01em] sm:text-2xl lg:col-span-8 lg:text-[28px]">
               {project.overview}
             </p>
           </div>
+
+          {/* the UX framing: who the site serves and what mattered for them */}
+          {(project.audience || project.priorities?.length) && (
+            <div className="mt-12 grid gap-4 lg:grid-cols-12 lg:gap-5">
+              {project.audience && (
+                <div className="rounded-panel bg-navy p-7 text-canvas lg:col-span-5">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sun text-navy">
+                      <UsersRound className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                    </span>
+                    <p className="text-eyebrow uppercase text-sun">Who it was for</p>
+                  </div>
+                  <p className="mt-5 font-display text-xl leading-snug tracking-[-0.01em] sm:text-2xl">
+                    {project.audience}
+                  </p>
+                </div>
+              )}
+              {project.priorities && project.priorities.length > 0 && (
+                <div className="rounded-panel bg-mist p-7 lg:col-span-7">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-royal text-white">
+                      <Target className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                    </span>
+                    <p className="text-eyebrow uppercase text-royal">What mattered most</p>
+                  </div>
+                  <ul className="mt-5 space-y-3">
+                    {project.priorities.map((p) => (
+                      <li key={p} className="flex gap-3 text-base leading-relaxed text-ink/75">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-royal" strokeWidth={2.5} aria-hidden />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
         </Shell>
       </section>
 

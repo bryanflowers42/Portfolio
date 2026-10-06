@@ -39,6 +39,8 @@ export type Project = {
   team?: string;
   scope: string[];           // small "fact" chips on the detail page
   overview: string;          // "The brief" on the detail page
+  audience?: string;         // "Who it was for"
+  priorities?: string[];     // "What mattered most" for those users
   process: ProcessStep[];
   cardImage?: string | null;
   heroImage?: string | null;
@@ -50,7 +52,7 @@ export const projects: Project[] = [
   {
     slug: "next-door-and-window",
     name: "Next Door & Window",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2025",
     featured: true,
     summary:
@@ -60,6 +62,12 @@ export const projects: Project[] = [
     scope: ["200+ pages", "Landing pages", "Scalable templates", "WordPress"],
     overview:
       "Next Door & Window replaces windows and doors across Chicago, St. Louis, and Madison. They needed a site that could hold hundreds of pages and still feel like one brand. I designed it from scratch and helped lead the small team that built it out.",
+    audience: "Homeowners in Chicago, St. Louis, and Madison shopping around for new windows and doors.",
+    priorities: [
+      "Make it easy to compare window and door styles at a glance.",
+      "Give every page one clear next step: book a free estimate.",
+      "Build landing pages that match the ad someone just clicked.",
+    ],
     process: [
       {
         stage: "Plan",
@@ -91,7 +99,7 @@ export const projects: Project[] = [
   {
     slug: "dryforce",
     name: "DryForce",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2025",
     featured: true,
     summary:
@@ -101,6 +109,12 @@ export const projects: Project[] = [
     scope: ["100+ pages", "Team of 5", "Content architecture", "WordPress"],
     overview:
       "DryForce does water damage restoration all over Texas. The tricky part was the sheer size: dozens of services and cities, and every one needed its own page. I designed the site, figured out how all that content fit together, and led the build.",
+    audience: "People dealing with water damage, usually in a hurry and usually on their phone.",
+    priorities: [
+      "Put the phone number in front of people right away.",
+      "Organize 100+ pages so people find their service and their city fast.",
+      "Build trust quickly with certifications and real results.",
+    ],
     process: [
       {
         stage: "Plan",
@@ -132,7 +146,7 @@ export const projects: Project[] = [
   {
     slug: "sun-solar-solutions",
     name: "Sun Solar Solutions",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2025",
     featured: true,
     summary:
@@ -141,6 +155,12 @@ export const projects: Project[] = [
     scope: ["Designed from scratch", "Figma", "Brand analysis", "WordPress"],
     overview:
       "Sun Solar installs solar for homes and businesses in Arizona, Nevada, Florida, and Texas. They already had a strong brand, they just needed a site that lived up to it. I took this one from research all the way through launch.",
+    audience: "Homeowners and businesses in four states trying to decide if solar is worth it.",
+    priorities: [
+      "Explain the options simply: solar, batteries, EV charging, and commercial.",
+      "Show proof early, like awards, the warranty, and real installs.",
+      "Carry their existing brand through every page.",
+    ],
     process: [
       {
         stage: "Discover",
@@ -172,7 +192,7 @@ export const projects: Project[] = [
   {
     slug: "american-sports-construction",
     name: "America Sports Construction",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2024",
     featured: true,
     summary:
@@ -181,6 +201,12 @@ export const projects: Project[] = [
     scope: ["$25M+ revenue client", "ADA compliant", "Core Web Vitals", "WordPress"],
     overview:
       "America Sports Construction builds courts, tracks, and turf fields all over the country. Their old site didn't show how big they really are. I designed and built the new one.",
+    audience: "Schools, cities, country clubs, and facility managers planning courts, tracks, and fields.",
+    priorities: [
+      "Lead with the work: real courts and fields up front.",
+      "Make it fully accessible, meeting ADA standards.",
+      "Keep every page fast, with strong Core Web Vitals.",
+    ],
     process: [
       {
         stage: "Kickoff",
@@ -212,7 +238,7 @@ export const projects: Project[] = [
   {
     slug: "ambient-edge",
     name: "Ambient Edge",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2024",
     featured: true,
     summary:
@@ -221,6 +247,12 @@ export const projects: Project[] = [
     scope: ["Multi brand program", "ACF templates", "Tight deadlines", "Updates after launch"],
     overview:
       "Ambient Edge was one of a few home service brands we rebuilt for The Friendly Group. I was on it from kickoff through launch, and stuck around for marketing updates after. Honestly, this is the project where I really learned how to build sites that scale.",
+    audience: "Homeowners and businesses around Kingman and Las Vegas who need heating, cooling, or plumbing help.",
+    priorities: [
+      "Make the right service easy to find from the home page.",
+      "Show specials without burying the main services.",
+      "Give the team templates they can keep updating after launch.",
+    ],
     process: [
       {
         stage: "Kickoff",
@@ -251,7 +283,7 @@ export const projects: Project[] = [
   {
     slug: "sunrise-kitchen",
     name: "Sunrise Kitchen",
-    discipline: "Web design & WordPress build",
+    discipline: "UX/UI & web design",
     year: "2024",
     featured: true,
     summary:
@@ -260,6 +292,11 @@ export const projects: Project[] = [
     scope: ["Solo project", "Brand led design", "Responsive", "WordPress"],
     overview:
       "Sunrise Kitchen is a local breakfast brand with a ton of personality and no website to show it off. I did everything on this one myself, from the first idea to launch.",
+    audience: "Locals looking for a breakfast spot with some personality.",
+    priorities: [
+      "Let the brand's personality lead the design.",
+      "Make it look and work great on every screen size.",
+    ],
     process: [
       {
         stage: "Discover",

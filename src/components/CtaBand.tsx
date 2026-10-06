@@ -1,7 +1,6 @@
 import { cta } from "@/content/site";
 import { Shell } from "./Shell";
 import Button from "./Button";
-import { FlowLines } from "./Decor";
 import Marked from "./Marked";
 
 export default function CtaBand() {
@@ -12,10 +11,6 @@ export default function CtaBand() {
           <div
             className="pointer-events-none absolute -bottom-32 left-1/2 h-[380px] w-[680px] -translate-x-1/2 rounded-full bg-accent/10 blur-[110px]"
             aria-hidden
-          />
-          <FlowLines
-            className="absolute inset-x-0 bottom-0 h-[200px] w-full text-accent"
-            opacity={0.22}
           />
           <div className="relative mx-auto max-w-[620px]">
             <h2 className="text-balance pb-1 text-display-sm leading-[1.15] lg:text-[44px]"><Marked text={cta.heading} invert /></h2>

@@ -51,20 +51,15 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        {/* email + phone as the header's two buttons; on mid-size screens
-            they shrink to icons so the nav still fits */}
+        {/* email + phone as outlined buttons, then Résumé as the one solid
+            blue call to action, last in the row. On mid-size screens email
+            and phone shrink to icons so the nav still fits. */}
         <div className="hidden items-center gap-2 md:flex">
-          <a
-            href={profile.resumeHref}
-            className="mr-2 text-sm font-medium tracking-[-0.01em] text-royal transition-colors hover:text-navy"
-          >
-            Résumé
-          </a>
           <a
             href={`mailto:${profile.email}`}
             aria-label={`Email ${profile.email}`}
             title={profile.email}
-            className={`${contactBtn} ${blueBtn}`}
+            className={`${contactBtn} ${outlineBtn}`}
           >
             <Mail className="h-4 w-4 shrink-0" aria-hidden />
             <span className="hidden xl:inline">{profile.email}</span>
@@ -73,10 +68,13 @@ export default function SiteHeader() {
             href={`tel:${profile.phoneHref}`}
             aria-label={`Call ${profile.phone}`}
             title={profile.phone}
-            className={`${contactBtn} ${blueBtn}`}
+            className={`${contactBtn} ${outlineBtn}`}
           >
             <Phone className="h-4 w-4 shrink-0" aria-hidden />
             <span className="hidden xl:inline">{profile.phone}</span>
+          </a>
+          <a href={profile.resumeHref} className={`${contactBtn} ${blueBtn} px-5`}>
+            Résumé
           </a>
         </div>
 
@@ -85,14 +83,14 @@ export default function SiteHeader() {
           <a
             href={`mailto:${profile.email}`}
             aria-label={`Email ${profile.email}`}
-            className={`flex h-10 w-10 items-center justify-center rounded-full ${blueBtn}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-full ${outlineBtn}`}
           >
             <Mail className="h-4 w-4" aria-hidden />
           </a>
           <a
             href={`tel:${profile.phoneHref}`}
             aria-label={`Call ${profile.phone}`}
-            className={`flex h-10 w-10 items-center justify-center rounded-full ${blueBtn}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-full ${outlineBtn}`}
           >
             <Phone className="h-4 w-4" aria-hidden />
           </a>
@@ -140,24 +138,24 @@ export default function SiteHeader() {
             </Link>
           ))}
           <a
-            href={profile.resumeHref}
-            className="rounded-card px-2 py-3 text-lg font-medium tracking-[-0.01em] text-royal"
-          >
-            Résumé
-          </a>
-          <a
             href={`mailto:${profile.email}`}
-            className={`${contactBtn} ${blueBtn} mt-3 w-full justify-center`}
+            className={`${contactBtn} ${outlineBtn} mt-3 w-full justify-center`}
           >
             <Mail className="h-4 w-4" aria-hidden />
             {profile.email}
           </a>
           <a
             href={`tel:${profile.phoneHref}`}
-            className={`${contactBtn} ${blueBtn} mt-2 w-full justify-center`}
+            className={`${contactBtn} ${outlineBtn} mt-2 w-full justify-center`}
           >
             <Phone className="h-4 w-4" aria-hidden />
             {profile.phone}
+          </a>
+          <a
+            href={profile.resumeHref}
+            className={`${contactBtn} ${blueBtn} mt-2 w-full justify-center`}
+          >
+            Résumé
           </a>
         </div>
       </div>
@@ -165,7 +163,8 @@ export default function SiteHeader() {
   );
 }
 
-/* shared shape and color for the email / phone buttons (always the same blue) */
+/* Résumé is the solid blue call to action; email and phone are outlined */
 const blueBtn = "bg-royal text-white hover:bg-royal-dark";
+const outlineBtn = "border border-royal bg-canvas text-royal hover:bg-mist";
 const contactBtn =
   "inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3.5 text-sm font-medium tracking-[-0.01em] transition-all duration-300 ease-ruul xl:px-5";
